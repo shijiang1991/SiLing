@@ -1,0 +1,75 @@
+<view class="four">
+    <!-- <view class="four_1">
+       <text>招生简章</text> /student recruitment brochure
+    </view> -->
+    <view class="four_2">
+       <view class="four_2_1"><image src='http://www.inlandschool.com/uploadfile/2019/0515/20190515051745108.png'></image></view>
+       <view class="four_2_2">
+          <view class="four_2_2_1">计算机应用专业</view>
+          <view class="four_2_2_2">
+               <view class="four_2_2_2_1">2020-01-23</view>
+               <view class="four_2_2_2_2">23人阅读</view>
+          </view>
+       </view>
+    </view>
+     <view class="four_2">
+       <view class="four_2_1"><image src='http://www.csyoushi.cn/data/upload/ueditor/20190528/5cecafab5654a.jpg'></image></view>
+       <view class="four_2_2">
+          <view class="four_2_2_1">会计专业</view>
+          <view class="four_2_2_2">
+               <view class="four_2_2_2_1">2020-01-23</view>
+               <view class="four_2_2_2_2">3人阅读</view>
+          </view>
+       </view>
+    </view>
+     <view class="four_2">
+       <view class="four_2_1"><image src='http://www.inlandschool.com/uploadfile/2019/0515/20190515051517557.png'></image></view>
+       <view class="four_2_2">
+          <view class="four_2_2_1">电子技术应用专业</view>
+          <view class="four_2_2_2">
+               <view class="four_2_2_2_1">2020-01-23</view>
+               <view class="four_2_2_2_2">23人阅读</view>
+          </view>
+       </view>
+    </view>
+     <view class="four_2">
+       <view class="four_2_1"><image src='http://www.inlandschool.com/uploadfile/2019/0426/20190426102707869.png'></image></view>
+       <view class="four_2_2">
+          <view class="four_2_2_1">老年人服务与管理专业</view>
+          <view class="four_2_2_2">
+               <view class="four_2_2_2_1">2020-01-23</view>
+               <view class="four_2_2_2_2">23人阅读</view>
+          </view>
+       </view>
+    </view>
+     <view class="four_2">
+       <view class="four_2_1"><image src='http://www.csyoushi.cn/data/upload/ueditor/20190528/5cecafab5654a.jpg'></image></view>
+       <view class="four_2_2">
+          <view class="four_2_2_1">旅游服务管理专业</view>
+          <view class="four_2_2_2">
+               <view class="four_2_2_2_1">2020-01-23</view>
+               <view class="four_2_2_2_2">23人阅读</view>
+          </view>
+       </view>
+    </view>
+     <view class="four_2">
+       <view class="four_2_1"><image src='http://www.inlandschool.com/uploadfile/2019/0515/20190515051507183.png'></image></view>
+       <view class="four_2_2">
+          <view class="four_2_2_1">电子商务专业</view>
+          <view class="four_2_2_2">
+               <view class="four_2_2_2_1">2020-01-23</view>
+               <view class="four_2_2_2_2">23人阅读</view>
+          </view>
+       </view>
+    </view>
+     <view class="four_2">
+       <view class="four_2_1"><image src='http://www.inlandschool.com/uploadfile/2019/0515/20190515062403580.png'></image></view>
+       <view class="four_2_2">
+          <view class="four_2_2_1">社会文化艺术专业</view>
+          <view class="four_2_2_2">
+               <view class="four_2_2_2_1">2020-01-23</view>
+               <view class="four_2_2_2_2">23人阅读</view>
+          </view>
+       </view>
+    </view>
+  </view>

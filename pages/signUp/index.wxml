@@ -1,0 +1,45 @@
+<view class="global">
+  <view class="one">请正确填写你的信息，以便于我们与你联系</view>
+  <view class="two">
+    <view class="two_1"><text>*</text> 姓名</view>
+    <view class="two_2">
+      <input type="text" name="name" placeholder="请输入姓名" />
+    </view>
+  </view>
+  <view class="two">
+    <view class="two_1"><text>*</text> 性别</view>
+    <view class="two_2">
+      <radio-group class="radio-group" bindchange="radioChange">
+        <radio class="radio" wx:for-items="{{items}}" color='#0099FF' wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
+          <text>{{item.value}}</text>
+        </radio>
+      </radio-group>
+    </view>
+  </view>
+  <view class="two">
+    <view class="two_1"><text>*</text> 电话</view>
+    <view class="two_2">
+      <input type="text" name="name" placeholder="请输入电话号码" />
+    </view>
+  </view>
+  <view class="two">
+    <view class="two_1"><text>*</text> 专业</view>
+    <view class="two_2">
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker">
+          {{array[index]}}
+        </view>
+      </picker>
+    </view>
+  </view>
+  <view class="three">
+    <view class="three_1">备注</view>
+    <view class="three_2">
+       <textarea  name='remark' placeholder="请填写备注 最多50字"  maxlength="50">
+      </textarea>
+    </view>
+  </view>
+  <view class="four">
+    <button style="width:80%">提交</button>
+  </view>
+</view>

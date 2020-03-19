@@ -1,0 +1,78 @@
+<view class="global">
+  <view class="title">
+    <view class="title_picture">
+      <view class="title_picture_1">
+        <!-- <image src='http://localhost:8080/images/title.png'></image> -->
+        <view wx:if="{{userId == ''}}" bindtap="btn">
+          <image src='http://m.qpic.cn/psc?/V10GF5243ixytb/XwdxpE8Hv.bcKvYPS8WipFwF1wEvTulmfArPMdxKHPdMf1UjeeHA0Q2zNN3j.g2XRIbGcnOQSy3GQ2KftztTDTA.d0PAbu*Gs1YvAk4ZLQk!/b&bo=yADIAAAAAAADByI!&rf=viewer_4'></image>
+        </view>
+        <view wx:else>
+          <open-data type="userAvatarUrl"></open-data>
+        </view>
+      </view>
+    </view>
+    <view class="title_name">
+      <view class="title_name_c">
+        <view wx:if="{{userId ==''}}" class="title_name_1" bindtap="btn">
+          <!-- <navigator url="/pages/my/login">请登录</navigator> -->
+          请登录
+        </view>
+        <view wx:else class="title_name_1">
+          <open-data type="userNickName"></open-data>
+        </view>
+        <view wx:if="{{signName==null}}" class="title_name_2">暂无个性签名</view>
+        <view wx:else class="title_name_2">{{signName}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="count_juan">
+    <view class="countJuan">
+      <view class="count_juan_1">
+        <view class="count_juan_1_1">
+          <view>
+            <image src="../../img/youhuijuan.png"></image>
+          </view>
+          <view>优惠劵</view>
+        </view>
+        <view class="count_juan_1_2">0</view>
+      </view>
+      <view class="count_juan_1">
+        <view class="count_juan_1_1">
+          <view>
+            <image src="../../img/fenxiang.png"></image>
+          </view>
+          <view>分享次数</view>
+        </view>
+        <view class="count_juan_1_2">+1</view>
+      </view>
+    </view>
+  </view>
+  <view class="content">
+    <view class="content_1">
+      <view class="content_1_1">
+        <view class="content_1_2">
+          <image src="../../img/juan.png"></image>
+        </view>
+        <view class="content_1_3">我的抵用卷</view>
+      </view>
+      <view class="content_1_1">
+        <view class="content_1_2">
+          <image src="../../img/juan1.png"></image>
+        </view>
+        <view class="content_1_3">领取抵用卷</view>
+      </view>
+      <view class="content_1_1">
+        <view class="content_1_2">
+          <image src="../../img/fenxiao.png"></image>
+        </view>
+        <view class="content_1_3">分享获卷</view>
+      </view>
+      <view class="content_1_1" bindtap="btn_phone">
+        <view class="content_1_2">
+          <image src="../../img/kefu.png"></image>
+        </view>
+        <view class="content_1_3">联系客服</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,97 @@
+<view class="global">
+  <!--首頁轮播图-->
+  <view class="swiper">
+    <swiper indicator-dots='true' indicator-color="#FFFFFF" indicator-active-color="#F05A49" autoplay='true' interval='4000'>
+      <swiper-item>
+        <!-- <image src='http://localhost:8080/images/home_bannner_img@3x.png'></image> -->
+        <image src='http://www.csyoushi.cn/data/upload/thumb/6.jpg'></image>
+      </swiper-item>
+      <swiper-item>
+        <!-- <image src='http://localhost:8080/images/home_bg_img6@3x.png'></image> -->
+        <image src='http://www.csyoushi.cn/data/upload/admin/20190523/5ce65e104d330.jpg'></image>
+      </swiper-item>
+      <swiper-item>
+        <!-- <image src='http://localhost:8080/images/home_bg_img7@3x.png'></image> -->
+        <image src='http://www.csyoushi.cn/data/upload/admin/20190523/5ce65e233c1c0.jpg'></image>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- <view class="two">
+     <view class="two_1">
+        <view class="two_1_1"><image src="/img/学校.png "></image> 学校简介</view>
+        <view class="two_1_1"><image src="/img/招人.png "></image> 招生简章</view>
+     </view>
+     <view class="two_1">
+        <view class="two_1_1"><image src="/img/专业.png "></image>专业介绍</view>
+        <view class="two_1_1"><image src="/img/联系我们.png "></image>联系我们</view>
+     </view>
+  </view> -->
+  <view class="test">
+    <view class="test1" bindtap="btn_school">
+      <view class="test2">
+        <image src="/img/学校.png "></image>
+      </view>
+      <view class="test3">学校简介</view>
+    </view>
+    <view class="test1" bindtap="btn_student">
+      <view class="test2">
+        <image src="/img/招人.png "></image>
+      </view>
+      <view class="test3" >招生简章</view>
+    </view>
+    <view class="test1" bindtap="btn_major">
+      <view class="test2">
+        <image src="/img/专业.png"></image>
+      </view>
+      <view class="test3">专业介绍</view>
+    </view>
+    <view class="test1" bindtap="btn_phone">
+      <view class="test2">
+        <image src="/img/联系我们.png"></image>
+      </view>
+      <view class="test3">联系我们</view>
+    </view>
+  </view>
+  <view class="three">
+    <view class="three1">--抵用劵--</view>
+    <view class="three2">
+      <view class="three_1">
+        <view>￥200</view>
+        <view>代金券</view>
+      </view>
+      <view class="three_2">
+         <view class="three_2_1">新生7月报名福利</view>
+         <view class="three_2_2">长期有效</view>
+      </view>
+      <view class="three_3"> 
+         <view class="three_3_1"><text>领取</text></view>
+         <view class="three_3_2">12人已领取</view>
+      </view>
+    </view>
+  </view>
+  <view class="four">
+    <view class="four_1">
+       <text>招生简章</text> /student recruitment brochure
+    </view>
+    <view class="four_2">
+       <view class="four_2_1"><image src='http://www.csyoushi.cn/data/upload/ueditor/20190528/5cecafab5654a.jpg'></image></view>
+       <view class="four_2_2">
+          <view class="four_2_2_1">2020年长沙市英蓝中等职业学校招生简章</view>
+          <view class="four_2_2_2">
+               <view class="four_2_2_2_1">2020-01-23</view>
+               <view class="four_2_2_2_2">23人阅读</view>
+          </view>
+       </view>
+    </view>
+    <view class="four_2">
+       <view class="four_2_1"><image src='http://www.inlandschool.com/uploadfile/2019/0515/20190515062403580.png'></image></view>
+       <view class="four_2_2">
+          <view class="four_2_2_1">2019年秋季社会文化艺术专业招生信息</view>
+          <view class="four_2_2_2">
+               <view class="four_2_2_2_1">2020-01-23</view>
+               <view class="four_2_2_2_2">23人阅读</view>
+          </view>
+       </view>
+    </view>
+  </view>
+</view>

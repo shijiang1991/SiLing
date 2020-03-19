@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/my/index",
+    "pages/index/index",
+    "pages/school/index",
+    "pages/student/index",
+    "pages/major/index",
+    "pages/contact/index",
+    "pages/signUp/index",  
+    "pages/logs/logs"  
+
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "长沙英蓝中等职业学校",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#f10b2e",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "selectedIconPath": "img/home_btn_icon_s.png",
+        "iconPath": "img/home_btn_icon_n.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/signUp/index",
+        "selectedIconPath": "img/classification_btn_icon_s.png",
+        "iconPath": "img/classification_btn_icon_n.png",
+        "text": "报名"
+      },
+      {
+        "pagePath": "pages/my/index",
+        "selectedIconPath": "img/me_btn_icon_s.png",
+        "iconPath": "img/me_btn_icon_n.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

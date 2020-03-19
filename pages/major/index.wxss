@@ -1,0 +1,55 @@
+.four{
+  width: 100%;
+}
+.four_1{
+  font-size: 10pt;
+  align-items: center;
+  color: rgb(151, 149, 149);
+  width: 94%;
+  padding: 3%;
+  background: #F4F4F4;
+}
+.four_1 text{
+  font-size: 14pt;
+  color: rgb(5, 4, 4);
+}
+.four_2{
+  width: 94%;
+  padding: 3%;
+  border-bottom: 1px solid #F4F4F4;
+  height: 55pt;
+  display: flex;
+  flex-direction: row;
+}
+.four_2_1{
+  width: 30%
+}
+.four_2_1 image{
+   height: 100%;
+   width: 80pt;
+}
+.four_2_2{
+ width: 70%;
+ height: 100%;
+ display: flex;
+ flex-direction: column;
+ padding-left: 8pt;
+}
+.four_2_2_1{
+  font-size: 12pt;
+  height: 80%;
+}
+.four_2_2_2{
+  font-size: 10pt;
+  color: rgb(151, 149, 149);
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.four_2_2_2_1{
+  width: 50%;
+}
+.four_2_2_2_2{
+  width: 50%;
+  text-align: right;
+}

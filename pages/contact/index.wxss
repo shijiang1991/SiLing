@@ -1,0 +1,53 @@
+.Location{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 8pt solid #F4F4F4;
+  padding-top: 3%;
+  padding-bottom: 3%; 
+}
+.Location_logo{
+  width: 29%;
+}
+.Location_logo image{
+   height: 72pt;
+   width: 72pt;
+}
+.Location_address{
+  width:61%; 
+}
+.Location_address_1{
+  font-size: 14pt;
+}
+.Location_address_2{
+  padding-top: 5pt;
+  font-size: 10pt;
+  color: rgb(99, 97, 97);
+}
+.Location_location{
+  display: flex;
+  align-items: center;
+}
+.Location_location image{
+  height: 24pt;
+  width: 24pt;
+}
+.phone{
+  width: 94%;
+  padding-left:3%; 
+  padding-right: 3%;
+  height: 44pt;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1pt solid #F4F4F4;
+}
+.phone_1{
+  font-size: 12pt;
+  color: #888;
+  width: 20%;
+}
+.phone_2{
+  text-align: right;
+  width: 80%;
+}

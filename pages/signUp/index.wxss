@@ -1,0 +1,55 @@
+
+.one {
+  height: 30pt;
+  background: #f4f4f4;
+  display: flex;
+  align-items: center;
+  color: #525050;
+}
+
+.two {
+  height: 44pt;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid #f4f4f4;
+  padding-left: 3%;
+}
+
+.two_1 text {
+  color: red;
+}
+
+.two_2 {
+  padding-left: 3%;
+}
+
+.three {
+  padding-left: 3%;
+}
+
+.three_1 {
+  height: 35pt;
+  display: flex;
+  align-items: center;
+}
+
+.three_2 textarea {
+  width: 94%;
+  height: 75pt;
+  border: 1px solid #f4f4f4;
+  border-radius: 5pt;
+}
+.four{
+  height: 45pt;
+  padding-top:3%;
+}
+.four button{
+  border-radius: 50pt;
+  height: 40pt;
+  background: #f05a49;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
