@@ -75,4 +75,10 @@
       </view>
     </view>
   </view>
+  <view class="footer_juan">
+    <view class="footer_juan_1">
+       <view class="footer_juan_1_1">分享给好友可以获得<text>50</text>元优惠</view>
+       <view class="footer_juan_1_2"><text>立即分享</text></view>
+    </view>
+  </view>
 </view>
