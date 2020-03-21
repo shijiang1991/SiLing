@@ -43,9 +43,15 @@
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid #F4F4F4;
+  font-size: 13pt;
 }
 .three1 text{
   color: #0099FF;
+  font-weight: bold;
+  font-size: 6pt;
+}
+.three_1_1{
+  font-size: 14pt;
 }
 .three2{
    display: flex;

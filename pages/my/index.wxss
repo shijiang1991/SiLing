@@ -135,7 +135,7 @@
   color: #f05a49;
 }
 .footer_juan{
-  height: 60pt;
+  height: 40pt;
   display: flex;
   justify-content: center;
 }

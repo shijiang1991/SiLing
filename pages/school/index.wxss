@@ -52,7 +52,7 @@
   font-weight: bold;
 }
 .content{
-  padding-top:5pt; 
+  padding:5pt; 
 }
 .content text{
  padding-left: 3%;

@@ -14,7 +14,11 @@ Page({
   onLoad: function (options) {
     wx.setNavigationBarTitle({ title: '联系我们' })
   },
-
+  btn_phone:function(){
+    wx.makePhoneCall({
+      phoneNumber: '0769-12345678',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

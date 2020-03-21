@@ -19,7 +19,8 @@
   <view class="two">
     <view class="two_1"><text>*</text> 电话</view>
     <view class="two_2">
-      <input type="text" name="name" placeholder="请输入电话号码" />
+      <view><input type="text" name="name" placeholder="请输入电话号码" /></view>  
+      <view class="two_2_1">获取微信注册号码</view>
     </view>
   </view>
   <view class="two">
