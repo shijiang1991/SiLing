@@ -53,10 +53,10 @@
     </view>
   </view>
   <view class="three">
-    <view class="three1">--抵用劵--</view>
+    <view class="three1"><text>//</text>抵·用·劵<text>//</text></view>
     <view class="three2">
       <view class="three_1">
-        <view>￥200</view>
+        <view class="three_1_1">￥200</view>
         <view>代金券</view>
       </view>
       <view class="three_2">
