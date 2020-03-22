@@ -1,34 +1,22 @@
-// pages/my/index.js
+// pages/my/signUp/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-     userId:"",
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.setNavigationBarTitle({
+      title: '报名信息',
+    })
+  },
 
-  },
-  btn_phone:function(){
-    wx.makePhoneCall({
-      phoneNumber: '15286617894',
-    })
-  },
-  btn_myCoupon:function(){
-    wx.navigateTo({
-      url: '/pages/my/coupon/index',
-    })
-  },
-  btn_signUp:function(){
-    wx.navigateTo({
-      url: '/pages/my/signUp/index',
-    })
-  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

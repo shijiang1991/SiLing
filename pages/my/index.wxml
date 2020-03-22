@@ -49,7 +49,7 @@
   </view>
   <view class="content">
     <view class="content_1">
-      <view class="content_1_1">
+      <view class="content_1_1" bindtap="btn_myCoupon">
         <view class="content_1_2">
           <image src="../../img/juan.png"></image>
         </view>
@@ -61,7 +61,7 @@
         </view>
         <view class="content_1_3">领取抵用卷</view>
       </view>
-      <view class="content_1_1">
+      <view class="content_1_1" bindtap="btn_signUp">
         <view class="content_1_2">
           <image src="../../img/bm.png"></image>
         </view>

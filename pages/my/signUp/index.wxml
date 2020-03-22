@@ -1,0 +1,23 @@
+<view class="global">
+   <view class="content">
+       <view class="content_1">您的报名信息如下</view>
+       <view class="content_2">
+          <view class="content_2_1">
+              <view class="content_2_1_1">专业</view>
+              <view class="content_2_1_2">计算机应用</view>
+          </view>
+          <view class="content_2_1">
+              <view class="content_2_1_1">姓名</view>
+              <view class="content_2_1_2">张三</view>
+          </view>
+          <view class="content_2_1">
+              <view class="content_2_1_1">性别</view>
+              <view class="content_2_1_2">男</view>
+          </view>
+          <view class="content_2_1">
+              <view class="content_2_1_1">电话</view>
+              <view class="content_2_1_2">18608551423</view>
+          </view>
+       </view>
+   </view>
+</view>
