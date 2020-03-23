@@ -12,7 +12,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.setNavigationBarTitle({
+      title: '我的',
+    })
   },
   btn_phone:function(){
     wx.makePhoneCall({
@@ -28,6 +30,9 @@ Page({
     wx.navigateTo({
       url: '/pages/my/signUp/index',
     })
+  },
+  btn_share:function(){
+    
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

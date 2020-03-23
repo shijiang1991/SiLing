@@ -154,7 +154,7 @@
   width: 28pt;
 }
 .footer_juan_1_1{
-  width: 70%;
+  width: 75%;
   color: #fff;
   padding-left: 5pt;
 }
@@ -164,7 +164,7 @@
   color: #ebf378;
 }
 .footer_juan_1_2{
-  width: 30%;
+  width: 25%;
   font-size: 12pt;
   color: #ebf378;
   display: flex;
