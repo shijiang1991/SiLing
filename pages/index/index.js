@@ -1,4 +1,3 @@
-//index.js
 //获取应用实例
 const app = getApp()
 
@@ -7,7 +6,9 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    bannerItem:[],
+    recruitStudentList:[]
   },
   //事件处理函数
   bindViewTap: function() {
@@ -15,13 +16,149 @@ Page({
       url: '../logs/logs'
     })
   },
-  onLoad: function () {
+  onLoad: function() {
+    var that = this;
+    wx.showShareMenu({
+      // 要求小程序返回分享目标信息
+      withShareTicket: true
+    });
+    //加载轮播图 start
+    wx.request({
+      url: app.globalData.url + '/schoolIntroduce/getBannerList',
+      method: 'get',
+      header: {
+        'content-type': 'application/json',
+      },
+      success: function(res) {
+        if (res.data.code == 200) {
+          var strTemp = res.data.data.data[0].banner;
+          var aryTemp = strTemp.split(",");
+          var json = []
+          for (var i = 0; i < aryTemp.length; i++) {
+            var j = {}
+            j.banner = aryTemp[i]
+            j.id = i
+            json.push(j)
+          }
+           that.setData({
+             bannerItem:json
+           })
+
+        } else {
+          wx.showToast({
+            title: '加载后台数据库失败',
+            icon: 'none',
+            duration: 1500
+          })
+        }
+      },
+      fail: function() {
+        wx.showToast({
+          title: '网络请求失败',
+          icon: 'none',
+          duration: 1500
+        })
+      }
+    })
+    //加载轮播图 end
+
+    //加载分类 start
+    wx.request({
+      url: app.globalData.url +'/type/getTypeList',
+      method: 'get',
+      header: {
+        'content-type': 'application/json',
+      },
+      success: function (res) {
+        that.setData({
+          schoolIntroduceName: res.data.data.data[0].name,
+          schoolIntroduceIcon: res.data.data.data[0].icon,
+          recruitStudentName: res.data.data.data[1].name,
+          recruitStudentIcon: res.data.data.data[1].icon,
+          recruitStudentEnglishName: res.data.data.data[1].englishName,
+          professionalIntroductionName: res.data.data.data[2].name,
+          professionalIntroductionIcon: res.data.data.data[2].icon,
+          contactUsName: res.data.data.data[3].name,
+          contactUsIcon: res.data.data.data[3].icon,
+        })
+       
+      },
+      fail:function(){
+        wx.showToast({
+          title: '网络请求失败',
+          icon: 'none',
+          duration: 1500
+        })
+      }
+    })
+    //加载分类 end
+    
+    //查询抵用卷栏目数据 start
+    wx.request({
+      url: app.globalData.url + '/coupon/getCouponList',
+      method: 'get',
+      header: {
+        'content-type': 'application/json',
+      },
+      success: function (res) {
+        var startTime;
+        var endTime;
+        if (res.data.data.startTime ==""){
+            startTime=""
+        }else{
+            startTime=res.data.data.startTime.substring(0, 10);
+        }
+        if (res.data.data.endTime == "") {
+          endTime = ""
+        } else {
+          endTime = res.data.data.endTime.substring(0, 10);
+        }
+        that.setData({
+          couponTitle:res.data.data.title,
+          couponName: res.data.data.name,
+          couponMoney:res.data.data.money,
+          couponStartTime: startTime,
+          couponEndTime: endTime,
+        })
+      },
+      fail: function () {
+        wx.showToast({
+          title: '网络请求失败',
+          icon: 'none',
+          duration: 1500
+        })
+      }
+    })
+    //查询抵用卷栏目数据 end
+
+    //查询领取优惠劵人数 start
+    wx.request({
+      url: app.globalData.url + '/signUp/getSignUpList',
+      method: 'get',
+      header: {
+        'content-type': 'application/json',
+      },
+      success: function (res) {
+        that.setData({
+           count:res.data.data
+        })
+      },
+      fail: function () {
+        wx.showToast({
+          title: '网络请求失败',
+          icon: 'none',
+          duration: 1500
+        })
+      }
+    })
+    //查询抵用卷栏目数据 end
+
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
-    } else if (this.data.canIUse){
+    } else if (this.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
@@ -50,23 +187,23 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  }, 
-  btn_phone:function(){
+  },
+  btn_phone: function() {
     wx.navigateTo({
       url: '/pages/contact/index',
     })
-  }, 
-  btn_student:function(){
+  },
+  btn_student: function() {
     wx.navigateTo({
       url: '/pages/student/index',
     })
   },
-  btn_school:function(){
+  btn_school: function() {
     wx.navigateTo({
       url: '/pages/school/index',
     })
-  }, 
-  btn_major:function(){
+  },
+  btn_major: function() {
     wx.navigateTo({
       url: '/pages/major/index',
     })

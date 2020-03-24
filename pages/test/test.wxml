@@ -1,0 +1,8 @@
+<view class="container">
+  <view class="userinfo">
+   <button open-type="share">分享好友</button>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view>

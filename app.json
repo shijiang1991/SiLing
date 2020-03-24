@@ -9,8 +9,8 @@
     "pages/major/index",
     "pages/contact/index",
     "pages/signUp/index",  
-    "pages/logs/logs"  
-
+    "pages/logs/logs",
+    "pages/test/test"
   ],
   "window": {
     "backgroundTextStyle": "light",
