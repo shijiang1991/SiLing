@@ -13,7 +13,7 @@
     </view>
     <view class="title_name">
       <view class="title_name_c">
-        <view wx:if="{{userId ==''}}" class="title_name_1" bindtap="btn">
+        <view wx:if="{{userId ==''}}" class="title_name_1" bindtap="bindgetuserinfo">
           <!-- <navigator url="/pages/my/login">请登录</navigator> -->
           请登录
         </view>
@@ -32,9 +32,9 @@
           <view>
             <image src="../../img/youhuijuan.png"></image>
           </view>
-          <view>抵用劵</view>
+          <view>邀请码</view>
         </view>
-        <view class="count_juan_1_2">0</view>
+        <view class="count_juan_1_2">025235</view>
       </view>
       <view class="count_juan_1">
         <view class="count_juan_1_1">
@@ -78,7 +78,7 @@
   <view class="footer_juan">
     <view class="footer_juan_1" bindtap="btn_share">
        <view class="footer_juan_1_1">邀请好友报名可以获得<text>50</text>元抵用卷</view>
-       <view class="footer_juan_1_2"><text>立即分享</text></view>
+       <view class="footer_juan_1_2"><!-- <text >立即分享</text> --><button open-type="share">立即分享</button></view> 
     </view>
   </view>
 </view>
