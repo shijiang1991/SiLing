@@ -1,5 +1,7 @@
 <view class="global">
   <!--首頁轮播图-->
+   
+
   <view class="swiper">
     <swiper indicator-dots='true' indicator-color="#FFFFFF" indicator-active-color="#F05A49" autoplay='true' interval='4000'>
       <swiper-item wx:for="{{bannerItem}}">
@@ -45,7 +47,7 @@
          <view class="three_2_2">{{couponStartTime}}至{{couponEndTime}}</view>
       </view>
       <view class="three_3"> 
-         <view class="three_3_1"><text>领取</text></view>
+         <view class="three_3_1" ><text>领取</text></view>
          <view class="three_3_2">{{count}}人已领取</view>
       </view>
     </view>

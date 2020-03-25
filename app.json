@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/my/index",
+    
+    "pages/index/index",
     "pages/my/signUp/index",
     "pages/my/coupon/index",
     "pages/school/index",
