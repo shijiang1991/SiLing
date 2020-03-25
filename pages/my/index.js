@@ -18,7 +18,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     wx.setNavigationBarTitle({
       title: '我的',
     })
@@ -27,22 +27,22 @@ Page({
       withShareTicket: true
     });
   },
-  btn_phone: function() {
+  btn_phone: function () {
     wx.makePhoneCall({
       phoneNumber: '15286617894',
     })
   },
-  btn_myCoupon: function() {
+  btn_myCoupon: function () {
     wx.navigateTo({
       url: '/pages/my/coupon/index',
     })
   },
-  btn_signUp: function() {
+  btn_signUp: function () {
     wx.navigateTo({
       url: '/pages/my/signUp/index',
     })
   },
-  btn_share: function() {
+  btn_share: function () {
 
   },
   //微信授权登录
@@ -119,52 +119,52 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   },
-  bindAuthor: function() {
+  bindAuthor: function () {
     var $this = this;
     wx.getSetting({
       success(res) {
@@ -206,6 +206,7 @@ Page({
             console.log("res 登录返回信息：", res)
             console.log("res 登录返回信息：", res.data.code)
             console.log("res 登录返回信息：", res.data.data.token)
+<<<<<<< Updated upstream
             if (res.data.code == 200) {
               storage.save("token", res.data.data.token)
               $this.setData({
@@ -215,6 +216,12 @@ Page({
               toast.normal(res.data.message)
             }
 
+=======
+            storage.save("token", res.data.data.token)
+            $this.setData({
+              userId: 1
+            })
+>>>>>>> Stashed changes
             toast.hideLoading()
           },
           fail: function() {

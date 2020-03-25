@@ -1,6 +1,6 @@
 const app = getApp()
 Page({
-
+    
   /**
    * 页面的初始数据
    */
@@ -31,6 +31,7 @@ Page({
     })
   },
   formSubmit:function(e){
+    
     if(e.detail.value.name==""){
       wx.showToast({
         title:"姓名不能为空！",
@@ -58,6 +59,16 @@ Page({
         return false;
       }
     }
+    if (wx.getStorageSync('token') == "") {
+      wx.showToast({
+        title: '您还未登录,请先登陆！',
+        icon: 'none',
+        duration: 1500
+      })
+      return wx.switchTab({
+        url: '/pages/my/index',
+      });
+    }
     wx.request({
       url: app.globalData.url + 'signUp/add',
       data: {
@@ -70,7 +81,8 @@ Page({
       },
       method: "post",
       header: {
-        "Content-Type": "application/json",
+        "token": wx.getStorageSync('token'),
+        "Content-Type": "application/json"
       },
       success: function (res) {
         console.log(res.data)
@@ -96,6 +108,11 @@ Page({
         })
       }
     })
+  },
+  getPhoneNumber:function(e) {
+    console.log(e.detail.errMsg)
+    console.log(e.detail.iv)
+    console.log(e.detail.encryptedData)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
