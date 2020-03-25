@@ -172,17 +172,20 @@ Page({
         console.log("所有权限：", res.authSetting)
         console.log("user scope:", res.authSetting['scope.userInfo'])
         if (res.authSetting['scope.userInfo']) {
-          wx.authorize({
-            scope: 'scope.userInfo',
-            success() {
-              // toast.normal("授权成功")
-              $this.requestlogin()
-            },
-            fail(err) {
-              toast.normal("授权失败,你已拒绝登录")
-              console.log("授权失败err:", err)
-            }
-          })
+          // wx.authorize({
+          //   scope: 'scope.userInfo',
+          //   success() {
+          //     // toast.normal("授权成功")
+          //     $this.requestlogin()
+          //   },
+          //   fail(err) {
+          //     console.log("错误信息：")
+          //     console.log("授权失败err:", err)
+          //     // toast.normal("授权失败,你已拒绝登录1" + JSON.stringify(err))
+          //     toast.normal(JSON.stringify(err))
+          //   }
+          // })
+          $this.requestlogin()
         } else {
           toast.normal("授权失败,你已拒绝登录")
           console.log("授权失败err1:")
