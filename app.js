@@ -39,8 +39,8 @@ App({
   },
   globalData: {
     userInfo: null,
-    url: "http://192.168.43.160:8081/",
-    appId: "wxbcf37205ef0c9d97",
-    appSecret: "ac5966b1c310257685ef4616a12e7057",
+    url: "http://192.168.0.190:8081/",
+    appId: "wxc9b92ef2e89d9117",
+    appSecret: "1d8695ec9b96d4c9987c3dcd463ed3df",
   }
 })

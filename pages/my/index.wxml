@@ -41,7 +41,7 @@
           <view>
             <image src="../../img/fenxiang.png"></image>
           </view>
-          <view>分享成功</view>
+          <view>邀请成功</view>
         </view>
         <view class="count_juan_1_2">+1</view>
       </view>

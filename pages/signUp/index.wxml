@@ -26,7 +26,7 @@
       <view>
         <input type="text" name="phone" placeholder="请输入电话号码" />
       </view>
-      <view class="two_2_1"><button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"></button></view>
+      <view class="two_2_1"><button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">微信授权手机号</button></view>
     </view>
   </view>
 

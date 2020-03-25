@@ -15,7 +15,9 @@
   border: 1px solid #f4f4f4;
   padding-left: 3%;
 }
-
+.two_1{
+  width: 15%;
+}
 .two_1 text {
   color: red;
 }
@@ -25,14 +27,17 @@
   display: flex;
   flex-direction: row;
 }
-.two_2_1{
-  background: #b3b0b0;
-  border-radius: 5pt;
+.two_2_1 button{
+  border-radius: 50pt;
+  color: #fff;
+  background: rgb(248, 81, 81);
+  height: 20pt;
+  width: 90pt !important;
+  font-size: 10px;
+  font-weight: bold;
   display: flex;
   align-items: center;
-  color: #fff;
-  font-size: 12pt;
-  height: 18pt;
+  justify-content: center;
 }
 .three {
   padding-left: 3%;

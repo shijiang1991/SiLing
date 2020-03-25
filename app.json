@@ -1,15 +1,14 @@
 {
   "pages": [
-    "pages/my/index",
-    
+    "pages/signUp/index",
     "pages/index/index",
+    "pages/my/index",
     "pages/my/signUp/index",
     "pages/my/coupon/index",
     "pages/school/index",
     "pages/student/index",
     "pages/major/index",
     "pages/contact/index",
-    "pages/signUp/index",  
     "pages/logs/logs",
     "pages/test/test"
   ],
