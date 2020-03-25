@@ -63,3 +63,6 @@
   align-items: center;
   justify-content: center;
 }
+radio {
+  transform:scale(0.9);
+}

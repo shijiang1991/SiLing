@@ -1,5 +1,6 @@
 <view class="global">
   <view class="one">请正确填写你的信息，以便于我们与你联系</view>
+   <form bindsubmit="formSubmit">
   <view class="two">
     <view class="two_1">
       <text>*</text> 姓名</view>
@@ -11,8 +12,8 @@
     <view class="two_1">
       <text>*</text> 性别</view>
     <view class="two_2">
-      <radio-group class="radio-group" bindchange="radioChange">
-        <radio class="radio" wx:for-items="{{items}}" color='#0099FF' wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
+      <radio-group class="radio-group" bindchange="radioChange" name='gender'>
+        <radio class="radio" wx:for-items="{{items}}" color='#0099FF'  wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
           <text>{{item.value}}</text>
         </radio>
       </radio-group>
@@ -23,9 +24,9 @@
       <text>*</text>电话</view>
     <view class="two_2">
       <view>
-        <input type="text" name="name" placeholder="请输入电话号码" />
+        <input type="text" name="phone" placeholder="请输入电话号码" />
       </view>
-      <view class="two_2_1">获取微信注册号码</view>
+      <view class="two_2_1"><button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"></button></view>
     </view>
   </view>
 
@@ -33,7 +34,7 @@
     <view class="two_1">
       <text>*</text> 专业</view>
     <view class="two_2">
-      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <picker bindchange="bindPickerChange" name='major' value="{{index}}" range="{{array}}">
         <view class="picker">
           {{array[index]}}
         </view>
@@ -43,7 +44,7 @@
   <view class="two">
     <view class="two_1">邀请码</view>
     <view class="two_2">
-      <input type="text" name="name" placeholder="请填邀请码" />
+      <input type="text" name="shareNum" placeholder="请填邀请码" />
     </view>
   </view>
   <view class="three">
@@ -54,6 +55,7 @@
     </view>
   </view>
   <view class="four">
-    <button style="width:80%">提交</button>
+    <button style="width:80%" formType="submit">提交</button>
   </view>
+  </form>
 </view>

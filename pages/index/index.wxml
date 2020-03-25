@@ -55,14 +55,15 @@
        <text>{{recruitStudentName}}</text> /{{recruitStudentEnglishName}}
     </view>
     <view class="four_2" wx:for="{{recruitStudentList}}">
-       <view class="four_2_1"><image src='http://www.csyoushi.cn/data/upload/ueditor/20190528/5cecafab5654a.jpg'></image></view>
+       <view class="four_2_1"><image src='{{item.picture}}'></image></view>
        <view class="four_2_2">
-          <view class="four_2_2_1">2020年长沙市英蓝中等职业学校招生简章</view>
+          <view class="four_2_2_1">{{item.title}}</view>
           <view class="four_2_2_2">
-               <view class="four_2_2_2_1">2020-01-23</view>
-               <view class="four_2_2_2_2">23人阅读</view>
+               <view class="four_2_2_2_1">{{item.createTime}}</view>
+               <view class="four_2_2_2_2">{{item.clickNum}}人阅读</view>
           </view>
        </view>
     </view>
+    <view class="footer" wx:if="{{end!=''}}">到底了....</view>
   </view>
 </view>
