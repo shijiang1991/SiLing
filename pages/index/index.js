@@ -278,4 +278,5 @@ Page({
     })
     this.getRecruitStudentPage()
   },
+  
 })
