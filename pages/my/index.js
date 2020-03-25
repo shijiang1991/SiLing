@@ -186,7 +186,7 @@ Page({
           //   }
           // })
           $this.requestlogin()
-          // test
+          // test test2
         } else {
           toast.normal("授权失败,你已拒绝登录")
           console.log("授权失败err1:")
