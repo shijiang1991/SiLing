@@ -1,4 +1,4 @@
-// pages/signUp/index.js
+const app = getApp()
 Page({
 
   /**
@@ -22,9 +22,81 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarTitle({ title: '报名' })
+    wx.setNavigationBarTitle({ title: '报名' });
+    wx.getStorage({
+      key: 'token',
+      success: function(res) {
+         
+      },
+    })
   },
-
+  formSubmit:function(e){
+    if(e.detail.value.name==""){
+      wx.showToast({
+        title:"姓名不能为空！",
+        icon: 'none',
+        duration: 1500
+      })
+      return false;
+    }
+    if (e.detail.value.phone == "") {
+      wx.showToast({
+        title: "电话不能为空！",
+        icon: 'none',
+        duration: 1500
+      })
+      return false;
+    }
+    if (e.detail.value.phone != "") {
+      var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+      if (!myreg.test(e.detail.value.phone)) {
+        wx.showToast({
+          title: '手机格式有误！',
+          icon: 'none',
+          duration: 1500
+        })
+        return false;
+      }
+    }
+    wx.request({
+      url: app.globalData.url + 'signUp/add',
+      data: {
+        name: e.detail.value.name,
+        gender: e.detail.value.gender,
+        phone: e.detail.value.phone,
+        major: e.detail.value.major,
+        shareNum: e.detail.value.shareNum,
+        remark: e.detail.value.remark
+      },
+      method: "post",
+      header: {
+        "Content-Type": "application/json",
+      },
+      success: function (res) {
+        console.log(res.data)
+        if (res.data.code == 200) {
+          wx.showToast({
+            title: '提交成功,我们会尽快与您联系！',
+            icon: 'success',
+            duration: 1500
+          })
+        } else {
+          wx.showToast({
+            title: res.data.message,
+            icon: 'none',
+            duration: 1500
+          })
+        }
+      },
+      fail: function () {
+        wx.showToast({
+          title: '网络请求失败',
+          icon: 'none',
+          duration: 1500
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

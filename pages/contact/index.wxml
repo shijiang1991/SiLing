@@ -1,11 +1,11 @@
 <view class='global'>
   <view class="Location">
     <view class="Location_logo">
-      <image src="http://m.qpic.cn/psc?/V10GF5243ixytb/4lHRQteLJOPksbF5iWLkOlvZL8qTZunTNYwd44Kgc5fFhacbrrZgHwDCPdeLUZGI5R3uViBXWtMMkcSt2qU48w!!/b&bo=VQFVAQAAAAARBzA!&rf=viewer_4"></image>
+      <image src="{{logo}}"></image>
     </view>
     <view class="Location_address">
-      <view class="Location_address_1">长沙英蓝中等技术学校招生办</view>
-      <view class="Location_address_2">长沙市英蓝中等职业学校（简称英蓝职校）是湖南省教育厅备案、长沙市教育局批准成立的全日制中等职业学校</view>
+      <view class="Location_address_1">{{title}}</view>
+      <view class="Location_address_2">{{introduce}}</view>
     </view>
     <view class="Location_location">
       <image src="../../img/Location.png"></image>
@@ -16,7 +16,7 @@
     <view class="phone_2">
       <view class="phone_2_1" bindtap="btn_phone">
         <view class="phone_2_2">
-          0796-12345678   
+          {{telephone}} 
         </view>
         <view class="phone_2_3"><image src="../../img/phone.png"></image></view>
       </view>
@@ -24,10 +24,10 @@
   </view>
   <view class="phone">
     <view class="phone_1">工作时间</view>
-    <view class="phone_2">8:00~17:00</view>
+    <view class="phone_2">{{workTime}}</view>
   </view>
   <view class="phone">
     <view class="phone_1">详细地址</view>
-    <view class="phone_2">长沙市天心区时代阳光大道与刘家冲西交汇</view>
+    <view class="phone_2">{{address}}</view>
   </view>
 </view>
