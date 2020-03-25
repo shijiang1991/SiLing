@@ -7,8 +7,11 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    bannerItem:[],
-    recruitStudentList:[]
+    bannerItem: [],
+    recruitStudentList: [],
+    pageIndex: 1,
+    pageSize: 10,
+    end:""
   },
   //事件处理函数
   bindViewTap: function() {
@@ -18,6 +21,7 @@ Page({
   },
   onLoad: function() {
     var that = this;
+    this.getRecruitStudentPage();
     wx.showShareMenu({
       // 要求小程序返回分享目标信息
       withShareTicket: true
@@ -40,9 +44,9 @@ Page({
             j.id = i
             json.push(j)
           }
-           that.setData({
-             bannerItem:json
-           })
+          that.setData({
+            bannerItem: json
+          })
 
         } else {
           wx.showToast({
@@ -64,12 +68,12 @@ Page({
 
     //加载分类 start
     wx.request({
-      url: app.globalData.url +'/type/getTypeList',
+      url: app.globalData.url + '/type/getTypeList',
       method: 'get',
       header: {
         'content-type': 'application/json',
       },
-      success: function (res) {
+      success: function(res) {
         that.setData({
           schoolIntroduceName: res.data.data.data[0].name,
           schoolIntroduceIcon: res.data.data.data[0].icon,
@@ -81,9 +85,9 @@ Page({
           contactUsName: res.data.data.data[3].name,
           contactUsIcon: res.data.data.data[3].icon,
         })
-       
+
       },
-      fail:function(){
+      fail: function() {
         wx.showToast({
           title: '网络请求失败',
           icon: 'none',
@@ -92,7 +96,7 @@ Page({
       }
     })
     //加载分类 end
-    
+
     //查询抵用卷栏目数据 start
     wx.request({
       url: app.globalData.url + '/coupon/getCouponList',
@@ -100,13 +104,13 @@ Page({
       header: {
         'content-type': 'application/json',
       },
-      success: function (res) {
+      success: function(res) {
         var startTime;
         var endTime;
-        if (res.data.data.startTime ==""){
-            startTime=""
-        }else{
-            startTime=res.data.data.startTime.substring(0, 10);
+        if (res.data.data.startTime == "") {
+          startTime = ""
+        } else {
+          startTime = res.data.data.startTime.substring(0, 10);
         }
         if (res.data.data.endTime == "") {
           endTime = ""
@@ -114,14 +118,14 @@ Page({
           endTime = res.data.data.endTime.substring(0, 10);
         }
         that.setData({
-          couponTitle:res.data.data.title,
+          couponTitle: res.data.data.title,
           couponName: res.data.data.name,
-          couponMoney:res.data.data.money,
+          couponMoney: res.data.data.money,
           couponStartTime: startTime,
           couponEndTime: endTime,
         })
       },
-      fail: function () {
+      fail: function() {
         wx.showToast({
           title: '网络请求失败',
           icon: 'none',
@@ -138,12 +142,12 @@ Page({
       header: {
         'content-type': 'application/json',
       },
-      success: function (res) {
+      success: function(res) {
         that.setData({
-           count:res.data.data
+          count: res.data.data
         })
       },
-      fail: function () {
+      fail: function() {
         wx.showToast({
           title: '网络请求失败',
           icon: 'none',
@@ -152,6 +156,7 @@ Page({
       }
     })
     //查询抵用卷栏目数据 end
+
 
     if (app.globalData.userInfo) {
       this.setData({
@@ -207,5 +212,70 @@ Page({
     wx.navigateTo({
       url: '/pages/major/index',
     })
-  }
+  },
+  getRecruitStudentPage: function() {
+
+    var that = this;
+    //招生简章 start
+    wx.request({
+      url: app.globalData.url + 'recruitStudent/getRecruitStudentPage',
+      data: {
+        pageIndex: this.data.pageIndex,
+        pageSize: this.data.pageSize,
+      },
+      method: 'get',
+      header: {
+        'content-type': 'application/json',
+      },
+      success: function(res) {
+        if (res.data.code == 200) {
+          if (that.data.pageIndex == 1) {
+            that.setData({
+              recruitStudentList: res.data.data.data,
+              end: ""
+            });
+          } else {
+            var temp = [];
+            temp = that.data.recruitStudentList;
+            for (var item in res.data.data.data){    
+              temp.push(res.data.data.data[item])
+            }
+            console.log(temp)
+            that.setData({
+              recruitStudentList: temp,
+              end: ""
+            });
+
+          }
+        }else{
+          that.setData({
+            end:"1"
+          })
+        }
+      },
+      fail: function() {
+        wx.showToast({
+          title: '网络请求失败',
+          icon: 'none',
+          duration: 1500
+        })
+      }
+    })
+    //招生简章 end
+  },
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function() {
+    this.setData({
+      pageIndex: 1
+    })
+    this.getRecruitStudentPage()
+  },
+  onReachBottom: function() {
+    this.setData({
+      pageIndex: this.data.pageIndex + 1
+    })
+    this.getRecruitStudentPage()
+  },
 })
