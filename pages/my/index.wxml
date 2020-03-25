@@ -1,5 +1,6 @@
 <view class="global">
   <view class="title">
+  <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button> -->
     <view class="title_picture">
       <view class="title_picture_1">
         <!-- <image src='http://localhost:8080/images/title.png'></image> -->

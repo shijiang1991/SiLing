@@ -11,8 +11,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userId:'',
-    islogin:false
+    userId: '',
+    islogin: false
   },
 
   /**
@@ -195,24 +195,29 @@ Page({
     })
   },
   requestlogin() {
-    var $this=this
+    var $this = this
     toast.showLoading('正在登录')
     wx.login({
       success(res) {
         wx.request({
           url: app.globalData.url + '/user/login/small?code=' + res.code,
           method: 'get',
-          success: function (res) {
+          success: function(res) {
             console.log("res 登录返回信息：", res)
             console.log("res 登录返回信息：", res.data.code)
-            console.log("res 登录返回信息：",res.data.data.token)
-            storage.save("token", res.data.data.token)
-            $this.setData({
-              userId:1
-            })
+            console.log("res 登录返回信息：", res.data.data.token)
+            if (res.data.code == 200) {
+              storage.save("token", res.data.data.token)
+              $this.setData({
+                userId: 1
+              })
+            } else {
+              toast.normal(res.data.message)
+            }
+
             toast.hideLoading()
           },
-          fail: function () {
+          fail: function() {
             toast.normal("网络请求失败")
           }
         })
@@ -238,5 +243,40 @@ Page({
     // })
   },
 
+  getPhoneNumber: function(res) {
+    console.log(res)
+    console.log(res.detail.encryptedData)
+    if (res.detail && res.detail.encryptedData) {
+      var $this = this
+      toast.showLoading('正在获取手机号')
+      wx.request({
+        header: {
+          "token": wx.getStorageSync('token'),
+          "Content-Type": "application/json"
+        },
+        data: {
+          encryptedData: res.detail.encryptedData,
+          iv: res.detail.iv,
+         
+        },
+        url: app.globalData.url + '/user/decrypt/phone' ,
+        method: 'post',
+        success: function(res) {
+          console.log("res 获取手机号返回信息：", res)
+          if (res.data.code == 200) {
+              console.log("手机号获取成功:",res)
+          } else {
+            toast.normal(res.data.message)
+          }
+          toast.hideLoading()
+        },
+        fail: function() {
+          toast.normal("网络请求失败")
+        }
+      })
+    } else {
+      toast.normal("获取手机号失败")
+    }
+  }
 
 })
