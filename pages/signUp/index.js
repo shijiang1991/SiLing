@@ -1,4 +1,6 @@
 const app = getApp()
+var storage = require("../../utils/storage.js");
+var toast = require("../../utils/toast.js");
 Page({
     
   /**
@@ -109,10 +111,42 @@ Page({
       }
     })
   },
-  getPhoneNumber:function(e) {
-    console.log(e.detail.errMsg)
-    console.log(e.detail.iv)
-    console.log(e.detail.encryptedData)
+  getPhoneNumber: function (res) {
+    var that=this;
+    if (res.detail && res.detail.encryptedData) {
+      var $this = this
+      toast.showLoading('正在获取手机号')
+      wx.request({
+        header: {
+          "token": wx.getStorageSync('token'),
+          "Content-Type": "application/json"
+        },
+        data: {
+          encryptedData: res.detail.encryptedData,
+          iv: res.detail.iv,
+
+        },
+        url: app.globalData.url + '/user/decrypt/phone',
+        method: 'post',
+        success: function (res) {
+          console.log("res 获取手机号返回信息：", res)
+          if (res.data.code == 200) {
+            console.log("手机号获取成功:", res)
+            that.setData({
+              phone:res.data.data
+            })
+          } else {
+            toast.normal(res.data.message)
+          }
+          toast.hideLoading()
+        },
+        fail: function () {
+          toast.normal("网络请求失败")
+        }
+      })
+    } else {
+      toast.normal("获取手机号失败")
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
