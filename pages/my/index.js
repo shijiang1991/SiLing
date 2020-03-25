@@ -1,7 +1,7 @@
 // pages/my/index.js
 const app = getApp()
 
-
+// 测试提交 2020年03月25日21:07:06
 var storage = require("../../utils/storage.js");
 var toast = require("../../utils/toast.js");
 
