@@ -47,7 +47,7 @@
          <view class="three_2_2">{{couponStartTime}}至{{couponEndTime}}</view>
       </view>
       <view class="three_3"> 
-         <view class="three_3_1" ><text>领取</text></view>
+         <view class="three_3_1" bindtap="btn_draw"><text>领取</text></view>
          <view class="three_3_2">{{count}}人已领取</view>
       </view>
     </view>

@@ -15,7 +15,7 @@
     <view class="title_name">
       <view class="title_name_c">
         <view wx:if="{{userId ==''}}" class="title_name_1">
-      <button class="btn-getuserinfo" bindgetuserinfo="bindAuthor" open-type='getUserInfo'>微信登录</button>
+      <button class="btn-getuserinfo" bindgetuserinfo="bindAuthor" open-type='getUserInfo'>请登录</button>
         </view>
         <view wx:else class="title_name_1">
           <open-data type="userNickName"></open-data>
@@ -34,7 +34,7 @@
           </view>
           <view>邀请码</view>
         </view>
-        <view class="count_juan_1_2">025235</view>
+        <view class="count_juan_1_2">{{shareCode==""?0:shareCode}}</view>
       </view>
       <view class="count_juan_1">
         <view class="count_juan_1_1">
@@ -43,7 +43,7 @@
           </view>
           <view>邀请成功</view>
         </view>
-        <view class="count_juan_1_2">+1</view>
+        <view class="count_juan_1_2">{{count==""?0:count}}</view>
       </view>
     </view>
   </view>
@@ -55,7 +55,7 @@
         </view>
         <view class="content_1_3">我的抵用卷</view>
       </view>
-      <view class="content_1_1">
+      <view class="content_1_1" bindtap="btn_coupon">
         <view class="content_1_2">
           <image src="../../img/juan1.png"></image>
         </view>
@@ -76,9 +76,9 @@
     </view>
   </view>
   <view class="footer_juan">
-    <view class="footer_juan_1" bindtap="btn_share">
+    <view class="footer_juan_1" >
        <view class="footer_juan_1_1">邀请好友报名可以获得<text>50</text>元抵用卷</view>
-       <view class="footer_juan_1_2"><!-- <text >立即分享</text> --><button open-type="share">立即分享</button></view> 
+       <view class="footer_juan_1_2" ><!-- <text >立即分享</text> --><button open-type="share">立即分享</button></view> 
     </view>
   </view>
 </view>

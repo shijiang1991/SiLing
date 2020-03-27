@@ -1,4 +1,3 @@
-
 const app = getApp()
 var storage = require("../../utils/storage.js");
 var toast = require("../../utils/toast.js");
@@ -10,13 +9,16 @@ Page({
    */
   data: {
     userId: '',
-    islogin: false
+    islogin: false,
+    shareCode:"",
+    count:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
+    var that = this;
     wx.setNavigationBarTitle({
       title: '我的',
     })
@@ -24,24 +26,155 @@ Page({
       //要求小程序返回分享目标信息
       withShareTicket: true
     });
+    this.setData({
+      userId: wx.getStorageSync("token")
+    })
+    //查询邀请码 start
+    if (wx.getStorageSync("token") != "") {
+      wx.request({
+        url: app.globalData.url + 'user/shareCode',
+        header: {
+          "token": wx.getStorageSync('token'),
+          "Content-Type": "application/json"
+        },
+        success: function(res) {
+          console.log(res.data)
+          that.setData({
+            shareCode: res.data.data.shareCode
+          })
+          wx.request({
+            url: app.globalData.url + 'signUp/shareCode',
+            data: {
+              code: res.data.data.shareCode,
+              userId: res.data.data.id
+            },
+            header: {
+              "Content-Type": "application/json"
+            },
+            success: function(res) {
+              that.setData({
+                count: res.data.data
+              })
+            },
+            fail: function() {
+              wx.showToast({
+                title: '网络请求失败',
+                icon: 'none',
+                duration: 1500
+              })
+            }
+          })
+        },
+        fail: function() {
+          wx.showToast({
+            title: '网络请求失败',
+            icon: 'none',
+            duration: 1500
+          })
+        }
+      })
+    }
+    //查询邀请码 end
   },
-  btn_phone: function () {
+  btn_phone: function() {
+    if (wx.getStorageSync("token") == "") {
+      return false;
+    }
     wx.makePhoneCall({
       phoneNumber: '15286617894',
     })
   },
-  btn_myCoupon: function () {
+  btn_myCoupon: function() {
+    if (wx.getStorageSync("token") == "") {
+      wx.showToast({
+        title: "请先登录！",
+        icon: 'none',
+        duration: 1500
+      })
+      return false;
+    }
     wx.navigateTo({
       url: '/pages/my/coupon/index',
     })
   },
-  btn_signUp: function () {
-    wx.navigateTo({
-      url: '/pages/my/signUp/index',
+  //报名信息
+  btn_signUp: function() {
+    if (wx.getStorageSync("token") == "") {
+      wx.showToast({
+        title: "请先登录！",
+        icon: 'none',
+        duration: 1500
+      })
+      return false;
+    }
+    //查询报名信息start
+    wx.request({
+      url: app.globalData.url + 'signUp/signUp',
+      header: {
+        "token": wx.getStorageSync('token'),
+        "Content-Type": "application/json"
+      },
+      success: function(res) {
+        if (res.data.data.data == "") {
+          toast.normal("您还没有报名！")
+        } else {
+          wx.navigateTo({
+            url: '/pages/my/signUp/index',
+          })
+        }
+      },
+      fail: function() {
+        wx.showToast({
+          title: '网络请求失败',
+          icon: 'none',
+          duration: 1500
+        })
+      }
     })
-  },
-  btn_share: function () {
+    //查询报名信息end
 
+  },
+  btn_share: function() {
+    if (wx.getStorageSync("token") != "") {
+       toast.normal("请您先登录!")
+       return false;
+    }
+  },
+  //领取抵用卷
+  btn_coupon: function() {
+    if (wx.getStorageSync("token") == "") {
+      wx.showToast({
+        title: "请先登录！",
+        icon: 'none',
+        duration: 1500
+      })
+      return false;
+    }
+    //查询报名信息start
+    wx.request({
+      url: app.globalData.url + 'signUp/signUp',
+      header: {
+        "token": wx.getStorageSync('token'),
+        "Content-Type": "application/json"
+      },
+      success: function(res) {
+        if (res.data.data.data == "") {
+          wx.switchTab({
+            url: '/pages/signUp/index',
+          })
+        } else {
+          toast.normal("您已领过！")
+        }
+      },
+      fail: function() {
+        wx.showToast({
+          title: '网络请求失败',
+          icon: 'none',
+          duration: 1500
+        })
+      }
+    })
+    //查询报名信息end
   },
   //微信授权登录
   // getUserInfo: function (e) {
@@ -117,52 +250,52 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   },
-  bindAuthor: function () {
+  bindAuthor: function() {
     var $this = this;
     wx.getSetting({
       success(res) {
@@ -200,22 +333,66 @@ Page({
         wx.request({
           url: app.globalData.url + '/user/login/small?code=' + res.code,
           method: 'get',
-          success: function (res) {
+          success: function(res) {
             console.log("res 登录返回信息：", res)
             console.log("res 登录返回信息：", res.data.code)
             console.log("res 登录返回信息：", res.data.data.token)
             if (res.data.code == 200) {
               storage.save("token", res.data.data.token)
               $this.setData({
-                userId: 1
+                userId: wx.getStorageSync("token"),
               })
+              //查询邀请码 start
+              if (wx.getStorageSync("token") != "") {
+                wx.request({
+                  url: app.globalData.url + 'user/shareCode',
+                  header: {
+                    "token": wx.getStorageSync('token'),
+                    "Content-Type": "application/json"
+                  },
+                  success: function(res) {
+                    $this.setData({
+                      shareCode: res.data.data.shareCode
+                    })
+                    wx.request({
+                      url: app.globalData.url + 'signUp/shareCode',
+                      data: {
+                        code: res.data.data.shareCode,
+                        userId: res.data.data.id
+                      },
+                      header: {
+                        "Content-Type": "application/json"
+                      },
+                      success: function(res) {
+                        $this.setData({
+                          count: res.data.data
+                        })
+                      },
+                      fail: function() {
+                        wx.showToast({
+                          title: '网络请求失败',
+                          icon: 'none',
+                          duration: 1500
+                        })
+                      }
+                    })
+                  },
+                  fail: function() {
+                    wx.showToast({
+                      title: '网络请求失败',
+                      icon: 'none',
+                      duration: 1500
+                    })
+                  }
+                })
+              }
+              //查询邀请码 end
             } else {
               toast.normal(res.data.message)
             }
-
             toast.hideLoading()
           },
-          fail: function () {
+          fail: function() {
             toast.normal("网络请求失败")
           }
         })

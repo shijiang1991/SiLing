@@ -11,7 +11,7 @@ Page({
       { name: '0', value: '男' },
       { name: '1', value: '女', checked: 'true' },
     ],
-    array: ['计算机应用专业', '会计专业', '电子技术应用专业', '老年人服务与管理专业'],
+    array: [],
     index: 0
   },
   bindPickerChange: function (e) {
@@ -24,16 +24,43 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that=this;
     wx.setNavigationBarTitle({ title: '报名' });
-    wx.getStorage({
-      key: 'token',
-      success: function(res) {
-         
+    //查询所有专业 start
+    wx.request({
+      url: app.globalData.url + 'professional/list',
+      method: "get",
+      header: {
+        "Content-Type": "application/json"
       },
+      success: function (res) {
+        var temp =[];
+        for (var index in res.data.data.data) {
+          temp.push(res.data.data.data[index].title);
+        }
+        that.setData({
+          array: temp,
+        })
+      },
+      fail: function () {
+        wx.showToast({
+          title: '网络请求失败',
+          icon: 'none',
+          duration: 1500
+        })
+      }
     })
+    //查询所有专业 end
   },
   formSubmit:function(e){
-    
+    if (wx.getStorageSync('token') == "") {
+      wx.showToast({
+        title: '您还未登录,请先登陆！',
+        icon: 'none',
+        duration: 1500
+      })
+      return false;
+    }
     if(e.detail.value.name==""){
       wx.showToast({
         title:"姓名不能为空！",
@@ -61,16 +88,6 @@ Page({
         return false;
       }
     }
-    if (wx.getStorageSync('token') == "") {
-      wx.showToast({
-        title: '您还未登录,请先登陆！',
-        icon: 'none',
-        duration: 1500
-      })
-      return wx.switchTab({
-        url: '/pages/my/index',
-      });
-    }
     wx.request({
       url: app.globalData.url + 'signUp/add',
       data: {
@@ -87,10 +104,9 @@ Page({
         "Content-Type": "application/json"
       },
       success: function (res) {
-        console.log(res.data)
         if (res.data.code == 200) {
           wx.showToast({
-            title: '提交成功,我们会尽快与您联系！',
+            title: '提交成功！',
             icon: 'success',
             duration: 1500
           })
@@ -112,6 +128,14 @@ Page({
     })
   },
   getPhoneNumber: function (res) {
+    if (wx.getStorageSync('token') == "") {
+      wx.showToast({
+        title: '您还未登录,请先登陆！',
+        icon: 'none',
+        duration: 1500
+      })
+      return false;
+    }
     var that=this;
     if (res.detail && res.detail.encryptedData) {
       var $this = this

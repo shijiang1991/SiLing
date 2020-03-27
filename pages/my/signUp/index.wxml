@@ -4,19 +4,19 @@
        <view class="content_2">
           <view class="content_2_1">
               <view class="content_2_1_1">专业</view>
-              <view class="content_2_1_2">计算机应用</view>
+              <view class="content_2_1_2">{{major}}</view>
           </view>
           <view class="content_2_1">
               <view class="content_2_1_1">姓名</view>
-              <view class="content_2_1_2">张三</view>
+              <view class="content_2_1_2">{{name}}</view>
           </view>
           <view class="content_2_1">
               <view class="content_2_1_1">性别</view>
-              <view class="content_2_1_2">男</view>
+              <view class="content_2_1_2">{{gender==0?"男":"女"}}</view>
           </view>
           <view class="content_2_1">
               <view class="content_2_1_1">电话</view>
-              <view class="content_2_1_2">18608551423</view>
+              <view class="content_2_1_2">{{phone}}</view>
           </view>
        </view>
    </view>

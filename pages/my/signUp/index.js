@@ -1,20 +1,45 @@
-// pages/my/signUp/index.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that=this;
     wx.setNavigationBarTitle({
       title: '报名信息',
     })
+    //查询报名信息 start
+    wx.request({
+      url: app.globalData.url +'signUp/signUp',
+      header: {
+        "token": wx.getStorageSync('token'),
+        "Content-Type": "application/json"
+      },
+      success:function(res){
+        console.log(res.data.data.data)
+        that.setData({
+          major: res.data.data.data[0].major,
+          name: res.data.data.data[0].name,
+          gender: res.data.data.data[0].gender,
+          phone: res.data.data.data[0].phone,
+        })
+      },
+      fail:function(){
+        wx.showToast({
+          title: '网络请求失败',
+          icon: 'none',
+          duration: 1500
+        })
+      }
+    })
+    //查询报名信息 end
   },
 
   /**

@@ -34,7 +34,7 @@
     <view class="two_1">
       <text>*</text> 专业</view>
     <view class="two_2">
-      <picker bindchange="bindPickerChange" name='major' value="{{index}}" range="{{array}}">
+      <picker bindchange="bindPickerChange" name='major' value="{{array[index]}}" range="{{array}}">
         <view class="picker">
           {{array[index]}}
         </view>

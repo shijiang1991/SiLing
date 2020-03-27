@@ -278,5 +278,18 @@ Page({
     })
     this.getRecruitStudentPage()
   },
-  
+  //btn_draw
+  btn_draw:function(){
+    wx.showModal({
+      title: '提示',
+      content: '报名领取抵用卷',
+      success: function (res) {
+        if (res.confirm) {
+          wx.switchTab({
+            url: '/pages/signUp/index',
+          })
+        }
+      }
+    })
+  }  
 })

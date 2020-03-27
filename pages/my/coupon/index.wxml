@@ -1,46 +1,19 @@
 <view class="global">
-   <view class="title">全部(3)</view>
-   <view class="content">
+   <view class="title">全部({{count}})</view>
+   <view class="content" wx:for="{{list}}">
        <view class="content_1">        
          <view class="content_1_1">
-           <view class="content_1_1_1">￥<text>500</text></view>
+           <view class="content_1_1_1">￥<text>{{item.money}}</text></view>
            <view class="content_1_1_2">代金卷</view>
          </view>
          <view class="content_1_2">
-            <view class="content_1_2_1">新生7月报名福利</view>
+            <view class="content_1_2_1">{{item.name}}</view>
             <view class="content_1_2_2">
-               <view class="content_1_2_2_1">2020.03.22-2020.10.01</view>
+               <view class="content_1_2_2_1">{{item.startTimeTemp}}至{{item.endTimeTemp}}</view>
                <view class="content_1_2_2_2"><text>报名使用</text></view>
             </view>            
          </view>
        </view>
        <view class="flex"></view>
-       <view class="content_1">        
-         <view class="content_1_1">
-           <view class="content_1_1_1">￥<text>50</text></view>
-           <view class="content_1_1_2">代金卷</view>
-         </view>
-         <view class="content_1_2">
-            <view class="content_1_2_1">邀请好友福利</view>
-            <view class="content_1_2_2">
-               <view class="content_1_2_2_1">2020.03.22-2020.10.01</view>
-               <view class="content_1_2_2_2"><text>报名使用</text></view>
-            </view>            
-         </view>
-       </view>
-       <view class="flex"></view>
-       <view class="content_1">        
-         <view class="content_1_1">
-           <view class="content_1_1_1">￥<text>50</text></view>
-           <view class="content_1_1_2">代金卷</view>
-         </view>
-         <view class="content_1_2">
-            <view class="content_1_2_1">邀请好友福利</view>
-            <view class="content_1_2_2">
-               <view class="content_1_2_2_1">2020.03.22-2020.10.01</view>
-               <view class="content_1_2_2_2"><text>报名使用</text></view>
-            </view>            
-         </view>
-       </view>
    </view>
 </view>

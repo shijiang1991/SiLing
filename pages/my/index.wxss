@@ -41,8 +41,8 @@
 }
 
 .title_name_1 {
-  font-size: 12pt;
   color: #fff;
+  text-align: left
 }
 
 .title_name_2 {
@@ -195,10 +195,9 @@
   background: #09f;
   color: #fff;
   font-weight: normal;
-  font-size: 12pt;
-  float: left;
+  font-size: 14pt;
   width: 88px !important;
-  background-color: rgb(248, 81, 81);
   padding: 0 !important;
-
+  float: left;
+  text-align: left;
 }
