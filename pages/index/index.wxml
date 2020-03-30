@@ -56,7 +56,7 @@
     <view class="four_1">
        <text>{{recruitStudentName}}</text> /{{recruitStudentEnglishName}}
     </view>
-    <view class="four_2" wx:for="{{recruitStudentList}}">
+    <view class="four_2" wx:for="{{recruitStudentList}}" bindtap="btn_detail" data-id="{{item.id}}">
        <view class="four_2_1"><image src='{{item.picture}}'></image></view>
        <view class="four_2_2">
           <view class="four_2_2_1">{{item.title}}</view>

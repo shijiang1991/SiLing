@@ -81,6 +81,12 @@ Page({
     })
     this.getRecruitStudentPage()
   },
+  btn_detail: function (e) {
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/school/detail/index?id=' + id,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

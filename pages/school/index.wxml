@@ -4,12 +4,12 @@
   </view>
   <view class="school_address">
     <view class="school_address_1">
-      <view class="school_address_1_1">长沙英蓝中的职业学校</view>
+      <view class="school_address_1_1">{{name}}</view>
       <view class="school_address_1_2">
         <view>
           <image src="../../img/Location.png"></image>
         </view>
-        <view>长沙市天心区时代阳光大道西与刘家冲中路交汇处</view>
+        <view>{{address}}</view>
       </view>
     </view>
   </view>
@@ -20,8 +20,6 @@
     <view class="content_title_2">学校介绍</view>
   </view>
   <view class="content">
-    <text>长沙市英蓝中等职业学校（简称英蓝职校）是湖南省教育厅备案、长沙市教育局批准成立的全日制中等职业学校。学校坐落于长沙市天心区南北主干道芙蓉南路和时代阳光大道西交汇处，临近湖南省人民政府，毗邻地铁一号线桂花坪站，交通十分便利，周边环境和谐，校园环境优美，是学习育人圣地。
-</text>
-    <image src="http://m.qpic.cn/psc?/V10GF5243ixytb/4lHRQteLJOPksbF5iWLkOlP6PnjEwqqb0iz2K02IvOcweXjLS1eOTQWexD2f7cvdtV2DlNSF*I0Sdg0fx5SP*w!!/b&bo=0wFPAQAAAAADB74!&rf=viewer_4"></image>
+    {{content}}
   </view>
 </view>

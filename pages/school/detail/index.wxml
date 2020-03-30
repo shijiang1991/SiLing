@@ -1,0 +1,12 @@
+<view class="global">
+   <view class="title">
+     <image src="{{picture}}"></image>
+   </view>
+   <view class="flex"><text bindtap="btn_back">首页</text> >> 招生简章</view>
+   <view class="content">
+      <view class="content_1">{{title}}</view>
+      <view class="content_2">
+         {{content}}
+      </view>
+   </view>
+</view>

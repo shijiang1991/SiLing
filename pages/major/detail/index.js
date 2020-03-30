@@ -1,4 +1,4 @@
-const app = getApp()
+// pages/major/detail/index.js
 Page({
 
   /**
@@ -12,21 +12,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that=this;
-    //学校简介内容 start
+    var that = this;
     wx.request({
-      url: app.globalData.url + '/schoolIntroduce/getBannerList',
+      url: app.globalData.url + '/professional/detail',
+      data: { id: options.id },
       method: 'get',
       header: {
         'content-type': 'application/json',
       },
       success: function (res) {
-         console.log(res.data.data.data[0].id)
-         that.setData({
-           name: res.data.data.data[0].name,
-           address: res.data.data.data[0].address,
-           content: res.data.data.data[0].content
-         })
+        console.log(res.data)
+        if (res.data.code == 200) {
+          that.setData({
+            picture: res.data.data.picture,
+            title: res.data.data.title,
+            content: res.data.data.content,
+          })
+        } else {
+          wx.showToast({
+            title: res.data.message,
+            icon: 'none',
+            duration: 1500
+          })
+        }
       },
       fail: function () {
         wx.showToast({
@@ -36,9 +44,12 @@ Page({
         })
       }
     })
-    //学校简介内容 end
   },
-
+  btn_back: function () {
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

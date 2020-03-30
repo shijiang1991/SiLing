@@ -34,6 +34,7 @@ Page({
         'content-type': 'application/json',
       },
       success: function(res) {
+        console.log(res.data)
         if (res.data.code == 200) {
           var strTemp = res.data.data.data[0].banner;
           var aryTemp = strTemp.split(",");
@@ -291,5 +292,11 @@ Page({
         }
       }
     })
-  }  
+  } ,
+  btn_detail:function(e){
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/school/detail/index?id='+id,
+    })
+  } 
 })

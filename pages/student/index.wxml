@@ -1,5 +1,6 @@
 <view class="four">
-  <view class="four_2" wx:for="{{recruitStudentList}}">
+  <view class="four_2" wx:for="{{recruitStudentList}}" bindtap="btn_detail" data-id="{{item.id}}"
+  >
     <view class="four_2_1">
       <image src='{{item.picture}}'></image>
     </view>
