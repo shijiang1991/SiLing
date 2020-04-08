@@ -25,8 +25,8 @@ Page({
     wx.request({
       url: app.globalData.url + 'recruitStudent/getRecruitStudentPage',
       data: {
-        pageIndex: this.data.pageIndex,
-        pageSize: this.data.pageSize,
+        page: this.data.pageIndex,
+        limit: this.data.pageSize,
       },
       method: 'get',
       header: {

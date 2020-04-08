@@ -2,7 +2,7 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-  border-bottom: 8pt solid #F4F4F4;
+  border-bottom: 16rpx solid #F4F4F4;
   padding-top: 3%;
   padding-bottom: 3%; 
 }
@@ -10,18 +10,18 @@
   width: 29%;
 }
 .Location_logo image{
-   height: 72pt;
-   width: 72pt;
+   height: 144rpx;
+   width:144rpx;
 }
 .Location_address{
   width:61%; 
 }
 .Location_address_1{
-  font-size: 14pt;
+  font-size: 28rpx;
 }
 .Location_address_2{
-  padding-top: 5pt;
-  font-size: 10pt;
+  padding-top: 10rpx;
+  font-size: 20rpx;
   color: rgb(99, 97, 97);
 }
 .Location_location{
@@ -29,31 +29,32 @@
   align-items: center;
 }
 .Location_location image{
-  height: 24pt;
-  width: 24pt;
+  height: 48rpx;
+  width: 48rpx;
 }
 .phone{
   width: 94%;
   padding-left:3%; 
   padding-right: 3%;
-  height: 44pt;
+  height: 88rpx;
   display: flex;
   flex-direction: row;
   align-items: center;
-  border-bottom: 1pt solid #F4F4F4;
+  border-bottom: 2rpx solid #F4F4F4;
 }
 .phone_1{
-  font-size: 12pt;
+  font-size: 24rpx;
   color: #888;
   width: 20%;
 }
 .phone_2{
   text-align: right;
   width: 80%;
+  font-size: 28rpx
 }
 .phone_2 image{
-  height: 18pt;
-  width: 18pt;
+  height: 36rpx;
+  width: 36rpx;
 }
 .phone_2_1{
   display: flex;
@@ -61,5 +62,5 @@
   align-items: center;
 }
 .phone_2_2{
-  padding-left: 3pt;
+  padding-left: 6rpx;
 }

@@ -10,16 +10,16 @@ page {
 .content {
   width: 100%;
   background: #fff;
-  box-shadow: 1px 1px 10px #f4f4f4;
-  border-radius: 5pt;
+  box-shadow: 2rpx 2rpx 20rpx #f4f4f4;
+  border-radius: 10rpx;
 }
 
 .content_1 {
-  height: 35pt;
+  height: 70rpx;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 14pt;
+  font-size: 28rpx;
   color: #09f;
 }
 
@@ -31,12 +31,12 @@ page {
    width: 94%;
 }
 .content_2_1 {
-  box-shadow: 1px 1px 10px #f4f4f4;
+  box-shadow: 2rpx 2rpx 20rpx #f4f4f4;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: 35pt;
+  height: 70rpx;
   padding-left: 3%;
 }
 .content_2_1_1{

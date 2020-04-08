@@ -1,6 +1,6 @@
 <view class="global">
   <view class="school_title">
-    <image src="http://www.inlandschool.com/statics/images/banner4.jpg"></image>
+    <image src="{{picture}}"></image>
   </view>
   <view class="school_address">
     <view class="school_address_1">

@@ -1,32 +1,32 @@
 .title {
-  height: 124pt;
+  height: 248rpx;
   width: 100%;
   display: flex;
   flex-direction: row;
   background: #09f;
-  border-bottom: 8pt solid #f4f4f4;
+  border-bottom: 16rpx solid #f4f4f4;
 }
 
 .title_picture {
   width: 30%;
-  height: 124pt;
+  height: 248rpx;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .title_picture_1 {
-  height: 53pt;
-  width: 53pt;
+  height: 106rpx;
+  width: 106rpx;
   overflow: hidden;
   border-radius: 50%;
-  border: 2px solid #fff;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  border: 2rpx solid #fff;
+  box-shadow: 6rpx 6rpx 20rpx rgba(0, 0, 0, 0.2);
 }
 
 .title_picture_1 image {
-  height: 53pt;
-  width: 53pt;
+  height: 106rpx;
+  width: 106rpx;
 }
 
 .title_name {
@@ -34,7 +34,7 @@
 }
 
 .title_name_c {
-  height: 124pt;
+  height: 248rpx;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -47,7 +47,7 @@
 
 .title_name_2 {
   padding-top: 2%;
-  font-size: 10pt;
+  font-size: 20rpx;
   color: #fff;
 }
 
@@ -55,15 +55,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80pt;
+  height: 160rpx;
 }
 
 .content_1 {
   width: 96%;
-  height: 60pt;
-  border-radius: 5pt;
+  height: 120rpx;
+  border-radius: 10rpx;
   background: #fff;
-  box-shadow: 0px 0px 10px 10px #f4f4f4;
+  box-shadow: 0px 0px 20rpx 20rpx #f4f4f4;
   display: flex;
   flex-direction: row;
 }
@@ -77,26 +77,26 @@
 }
 
 .content_1_2 image {
-  width: 24pt;
-  height: 24pt;
+  width: 48rpx;
+  height: 48rpx;
 }
 
 .content_1_3 {
-  font-size: 10pt;
+  font-size: 24rpx;
 }
 
 .count_juan {
-  height: 40pt;
+  height: 80rpx;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .countJuan {
-  height: 35pt;
+  height: 70rpx;
   width: 96%;
-  box-shadow: 0px 0px 10px 10px #f4f4f4;
-  border-radius: 5pt;
+  box-shadow: 0px 0px 20rpx 20rpx #f4f4f4;
+  border-radius: 10rpx;
   display: flex;
   flex-direction: row;
   justify-items: center;
@@ -108,23 +108,23 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  border-left: 1pt solid #f4f4f4;
-  border-right: 1pt solid #f4f4f4;
+  border-left: 2rpx solid #f4f4f4;
+  border-right: 2rpx solid #f4f4f4;
 }
 
 .count_juan_1_1 {
   padding-left: 5%;
   width: 50%;
-  font-size: 10pt;
+  font-size: 24rpx;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
 .count_juan_1_1 image {
-  margin-top: 3pt;
-  height: 18pt;
-  width: 18pt;
+  margin-top: 6rpx;
+  height: 36rpx;
+  width: 36rpx;
 }
 
 .count_juan_2 {
@@ -136,35 +136,36 @@
 }
 
 .footer_juan {
-  height: 40pt;
+  height: 80rpx;
   display: flex;
   justify-content: center;
 }
 
 .footer_juan_1 {
   background: rgb(248, 81, 81);
-  height: 40pt;
+  height: 80rpx;
   width: 96%;
-  border-radius: 3pt;
-  box-shadow: 0px 0px 10px 10px #f4f4f4;
+  border-radius: 6rpx;
+  box-shadow: 0px 0px 20rpx 20rpx #f4f4f4;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
 .footer_juan_1 image {
-  height: 28pt;
-  width: 28pt;
+  height: 56rpx;
+  width: 56rpx;
 }
 
 .footer_juan_1_1 {
   width: 72%;
   color: #fff;
-  padding-left: 5pt;
+  padding-left: 10rpx;
+  font-size: 28rpx;
 }
 
 .footer_juan_1_1 text {
-  font-size: 16pt;
+  font-size: 36rpx;
   font-weight: bold;
   color: #ebf378;
 }
@@ -174,29 +175,29 @@
 }
 
 .footer_juan_1_2 text {
-  border: 1pt solid #ebf378;
+  border: 2rpx solid #ebf378;
   border-radius: 50pt;
 }
 
 .footer_juan_1_2 button {
-  border-radius: 50pt;
+  border-radius: 100rpx;
   color: #ebf378;
   background: rgb(248, 81, 81);
-  border: 1pt solid #ebf378;
-  height: 20pt;
+  border: 2rpx solid #ebf378;
+  height: 50rpx;
   width: 96% !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 10px;
+  font-size: 20rpx;
   font-weight: bold;
 }
 .btn-getuserinfo{
   background: #09f;
   color: #fff;
   font-weight: normal;
-  font-size: 14pt;
-  width: 88px !important;
+  font-size: 28rpx;
+  width: 176rpx !important;
   padding: 0 !important;
   float: left;
   text-align: left;

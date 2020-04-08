@@ -1,31 +1,31 @@
 .title{
-  height: 140pt;
+  height: 320rpx;
  width: 100%;
 }
 .title image{
-  height: 140pt;
+  height: 320rpx;
   width: 100%;
 }
 .flex{
-  height: 24pt;
+  height: 48rpx;
   background: #F4F4F4;
   display: flex;
   align-items: center;
   font-weight: bold;
-  font-size: 10pt;
+  font-size: 20rpx;
   padding-left: 3%;
 }
 .content{
   padding: 3%;
 }
 .content_1{
-  height: 28pt;
+  height: 56rpx;
   display: flex;
   justify-content: center;
   color: #f05a49;
   font-weight: bold;
-  font-size: 12pt;
+  font-size: 24rpx;
 }
 .content_2{
-  font-size: 10pt;
+  font-size: 20rpx;
 }

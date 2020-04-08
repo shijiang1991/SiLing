@@ -80,8 +80,26 @@ Page({
     if (wx.getStorageSync("token") == "") {
       return false;
     }
-    wx.makePhoneCall({
-      phoneNumber: '15286617894',
+    wx.request({
+      url: app.globalData.url + 'contactUs/contactUs',
+      method: 'get',
+      header: {
+        'content-type': 'application/json',
+      },
+      success: function (res) {
+        if (res.data.code == 200) {
+          wx.makePhoneCall({
+            phoneNumber: res.data.data.telephone,
+          })
+        }
+      },
+      fail: function () {
+        wx.showToast({
+          title: '网络请求失败',
+          icon: 'none',
+          duration: 1500
+        })
+      }
     })
   },
   btn_myCoupon: function() {

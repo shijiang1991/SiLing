@@ -22,8 +22,8 @@ Page({
     wx.request({
       url: app.globalData.url + 'professional/page',
       data: {
-        pageIndex: this.data.pageIndex,
-        pageSize: this.data.pageSize,
+        page: this.data.pageIndex,
+        limit: this.data.pageSize,
       },
       method: 'get',
       header: {
@@ -84,7 +84,7 @@ Page({
   btn_detail: function (e) {
     var id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '/pages/school/detail/index?id=' + id,
+      url: '/pages/major/detail/index?id=' + id,
     })
   },
   /**

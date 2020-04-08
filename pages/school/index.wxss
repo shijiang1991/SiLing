@@ -1,63 +1,65 @@
 .school_title image{
     width: 100%;
-    height: 144pt;
+    height: 288rpx;
 }
 .school_address{
-  height: 75pt;
+  height: 150rpx;
   display: flex;
   justify-content: center;
 }
 .school_address_1{
   width: 90%;
-  height: 75pt;
+  height: 150rpx;
   background: #fff;
   z-index: 999;
-  margin-top:-10pt; 
-  border-radius:5px;
-  border: 1px solid #F4F4F4;
-  box-shadow:1px 1px 1px 1px #F4F4F4;
+  margin-top:-20rpx; 
+  border-radius:10rpx;
+  border: 1rpx solid #F4F4F4;
+  box-shadow:2rpx 2rpx 2rpx 2rpx #F4F4F4;
 }
 .school_address_1_1{
-  padding: 5pt;
-  font-size: 14pt;
+  padding: 10rpx;
+  font-size: 28rpx;
   font-weight: bold;
 }
 .school_address_1_2{
   display: flex;
   flex-direction: row;
+  font-size: 28rpx;
 }
 .school_address_1_2 image{
-  padding: 5pt;
-  height: 18pt;
-  width: 18pt;
+  padding: 10rpx;
+  height: 36rpx;
+  width: 36rpx;
 }
 .content_title{
   display: flex;
   flex-direction: row;
-  height: 34pt;
+  height: 68rpx;
   padding-left: 3%;
   background: #F4F4F4;
   align-items: center;
 }
 .content_title_1{
-   margin-top: 5pt;
+   margin-top: 10rpx;
 }
 .content_title_1 image{
-  height: 14pt;
-  width: 14pt;
+  height: 28rpx;
+  width: 28rpx;
 }
 .content_title_2{
-  padding: 5pt;
-  font-size: 14pt;
+  padding: 10rpx;
+  font-size: 28rpx;
   font-weight: bold;
 }
 .content{
-  padding:5pt; 
+  padding:10rpx; 
+  font-size: 28rpx;
 }
 .content text{
  padding-left: 3%;
 }
 .content image{
-  padding-top: 5pt;
+  padding-top: 10rpx;
   width: 100%;
 }

@@ -1,4 +1,4 @@
-// pages/major/detail/index.js
+const app = getApp()
 Page({
 
   /**

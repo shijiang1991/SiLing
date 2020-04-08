@@ -1,19 +1,21 @@
 
 .one {
-  height: 30pt;
+  height: 60rpx;
   background: #f4f4f4;
   display: flex;
   align-items: center;
   color: #525050;
+  font-size: 28rpx;
 }
 
 .two {
-  height: 44pt;
+  height: 88rpx;
   display: flex;
   flex-direction: row;
   align-items: center;
-  border: 1px solid #f4f4f4;
+  border: 1rpx solid #f4f4f4;
   padding-left: 3%;
+  font-size: 28rpx;
 }
 .two_1{
   width: 15%;
@@ -28,40 +30,45 @@
   flex-direction: row;
 }
 .two_2_1 button{
-  border-radius: 50pt;
+  border-radius: 100rpx;
   color: #fff;
   background: rgb(248, 81, 81);
-  height: 20pt;
-  width: 90pt !important;
-  font-size: 10px;
+  height: 50rpx;
+  width: 250rpx !important;
+  font-size: 21rpx;
   font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+radio {
+  transform:scale(0.7);
 }
 .three {
   padding-left: 3%;
 }
 
 .three_1 {
-  height: 35pt;
+  height: 70rpx;
   display: flex;
   align-items: center;
+  font-size: 28rpx;
 }
 
 .three_2 textarea {
   width: 94%;
-  height: 75pt;
-  border: 1px solid #f4f4f4;
-  border-radius: 5pt;
+  height: 150rpx;
+  border: 1rpx solid #f4f4f4;
+  border-radius: 10rpx;
+  font-size: 28rpx;
 }
 .four{
-  height: 45pt;
+  height: 90rpx;
   padding-top:3%;
 }
 .four button{
-  border-radius: 50pt;
-  height: 40pt;
+  border-radius: 100rpx;
+  height: 80rpx;
   background: #f05a49;
   color: #fff;
   display: flex;

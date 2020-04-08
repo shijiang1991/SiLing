@@ -1,62 +1,62 @@
 /**index.wxss**/
 .swiper {
-  height: 168pt;
+  height: 386rpx;
   width: 100%;
 }
 
 .swiper swiper {
-  height: 163pt;
+  height: 376rpx;
 }
 
 .swiper image {
   width: 100%;
-  height: 163pt;
+  height: 376rpx;
 }
 .two {
-  height: 120pt;
+  height:240rpx;
   width:100%;
 }
 .two_1{
   display: flex;
   flex-direction: row;
-  height: 60pt;
+  height: 120rpx;
   width: 100%;
 }
 .two_1_1{
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1pt solid #ddd;
+  border: 2rpx solid #ddd;
   width: 50%;
 }
 .two_1_1 image{
-  height: 24pt;
-  width: 24pt;
+  height: 44rpx;
+  width: 44rpx;
 }
 .three{
-  height: 80pt;
-  border-bottom: 8pt solid #F4F4F4;
+  height: 160rpx;
+  border-bottom: 16rpx solid #F4F4F4;
 }
 .three1{
-  height: 24pt;
+  height: 48rpx;
   display: flex;
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid #F4F4F4;
-  font-size: 13pt;
+  font-size: 32rpx;
 }
 .three1 text{
   color: #0099FF;
   font-weight: bold;
-  font-size: 6pt;
+  font-size: 12rpx;
 }
 .three_1_1{
-  font-size: 14pt;
+  font-size: 32rpx;
 }
 .three2{
    display: flex;
    flex-direction: row;
-   height: 50pt;
+   height: 100rpx;
    padding: 3%;
 }
 .three_1{
@@ -67,25 +67,25 @@
   justify-content: center;
   align-items: center;
   color: #fff;
-  font-size: 10pt;
-  height: 37pt;
-  border-radius: 5pt;
+  font-size: 20rpx;
+  height: 74rpx;
+  border-radius: 10rpx;
 }
 three_1_1{
-  border-bottom: 1pt solid #fff;
+  border-bottom: 2rpx solid #fff;
 }
 .three_2{
   display: flex;
   flex-direction: column;
   width: 50%;
-  font-size: 12pt;
-  padding-left: 5pt;
+  font-size: 28rpx;
+  padding-left: 10rpx;
 }
 .three_2_1{
   height: 40%;
 }
 .three_2_2{
-  font-size: 10pt;
+  font-size: 24rpx;
   color: rgb(151, 149, 149);
 }
 .three_3{
@@ -94,39 +94,42 @@ three_1_1{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-   height: 37pt;
+  height: 74rpx;
 }
 .three_3 text{
-  border: 1px solid rgb(34, 33, 33);
-  border-radius: 50pt;
-  width: 45pt;
+  border: 1rpx solid rgb(34, 33, 33);
+  border-radius: 100rpx;
+  width: 90rpx;
   display: flex;
   justify-content: center;
 }
+.three_3_1{
+  font-size: 28rpx;
+}
 .three_3_2{
-  padding-top: 2pt;
-  font-size: 9pt;
+  padding-top: 4rpx;
+  font-size: 20rpx;
   color: rgb(151, 149, 149);
 }
 .four{
   width: 100%;
 }
 .four_1{
-  font-size: 10pt;
+  font-size: 20rpx;
   align-items: center;
   color: rgb(151, 149, 149);
   width: 94%;
   padding: 3%;
 }
 .four_1 text{
-  font-size: 14pt;
+  font-size: 28rpx;
   color: rgb(5, 4, 4);
 }
 .four_2{
   width: 94%;
   padding: 3%;
   border-bottom: 1px solid #F4F4F4;
-  height: 55pt;
+  height: 110rpx;
   display: flex;
   flex-direction: row;
 }
@@ -135,21 +138,21 @@ three_1_1{
 }
 .four_2_1 image{
    height: 100%;
-   width: 80pt;
+   width: 180rpx;
 }
 .four_2_2{
  width: 70%;
  height: 100%;
  display: flex;
  flex-direction: column;
- padding-left: 5pt;
+ padding-left: 10rpx;
 }
 .four_2_2_1{
-  font-size: 12pt;
+  font-size: 26rpx;
   height: 80%;
 }
 .four_2_2_2{
-  font-size: 10pt;
+  font-size: 22rpx;
   color: rgb(151, 149, 149);
   width: 100%;
   display: flex;
@@ -163,22 +166,28 @@ three_1_1{
   text-align: right;
 }
 .flex{
-  height: 5pt;
+  height: 10rpx;
 }
 .test{
   display: flex;
   flex-direction: row;
-  border-bottom: 8pt solid #F4F4F4;
+  border-bottom: 16rpx solid #F4F4F4;
 }
 .test1{
   width: 25%;
-  height: 60pt;
+  height: 120rpx;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 .test2 image{
-  height: 25pt;
-  width: 25pt;
+  height: 50rpx;
+  width: 50rpx;
+}
+.test3{
+  font-size: 32rpx;
+}
+.footer{
+  font-size: 28rpx;
 }

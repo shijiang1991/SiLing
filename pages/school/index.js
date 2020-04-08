@@ -23,6 +23,7 @@ Page({
       success: function (res) {
          console.log(res.data.data.data[0].id)
          that.setData({
+           picture: res.data.data.data[0].picture,
            name: res.data.data.data[0].name,
            address: res.data.data.data[0].address,
            content: res.data.data.data[0].content
