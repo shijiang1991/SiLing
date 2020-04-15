@@ -2,7 +2,7 @@
   width: 100%;
 }
 .four_1{
-  font-size: 10pt;
+  font-size: 20rpx;
   align-items: center;
   color: rgb(151, 149, 149);
   width: 94%;
@@ -10,14 +10,14 @@
   background: #F4F4F4;
 }
 .four_1 text{
-  font-size: 14pt;
+  font-size: 28rpx;
   color: rgb(5, 4, 4);
 }
 .four_2{
   width: 94%;
   padding: 3%;
-  border-bottom: 1px solid #F4F4F4;
-  height: 55pt;
+  border-bottom: 2rpx solid #F4F4F4;
+  height: 110rpx;
   display: flex;
   flex-direction: row;
 }
@@ -26,21 +26,21 @@
 }
 .four_2_1 image{
    height: 100%;
-   width: 80pt;
+   width: 180rpx;
 }
 .four_2_2{
  width: 70%;
  height: 100%;
  display: flex;
  flex-direction: column;
- padding-left: 5pt;
+ padding-left: 16rpx;
 }
 .four_2_2_1{
-  font-size: 12pt;
+  font-size: 24rpx;
   height: 80%;
 }
 .four_2_2_2{
-  font-size: 10pt;
+  font-size: 20rpx;
   color: rgb(151, 149, 149);
   width: 100%;
   display: flex;
