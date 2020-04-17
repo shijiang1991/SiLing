@@ -195,8 +195,8 @@
 .btn-getuserinfo{
   background: #09f;
   color: #fff;
-  font-weight: normal;
-  font-size: 28rpx;
+  font-size: 32rpx;
+  font-weight:bold;
   width: 176rpx !important;
   padding: 0 !important;
   float: left;

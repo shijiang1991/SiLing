@@ -118,7 +118,7 @@ Page({
           })
         }
       },
-      fail: function () {
+      fail: function (res) {
         wx.showToast({
           title: '网络请求失败',
           icon: 'none',
@@ -150,7 +150,7 @@ Page({
           iv: res.detail.iv,
 
         },
-        url: app.globalData.url + '/user/decrypt/phone',
+        url: app.globalData.url + 'user/decrypt/phone',
         method: 'post',
         success: function (res) {
           console.log("res 获取手机号返回信息：", res)

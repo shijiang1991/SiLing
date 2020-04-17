@@ -6,7 +6,7 @@
    <view class="content">
       <view class="content_1">{{title}}</view>
       <view class="content_2">
-         {{content}}
+         <rich-text nodes="{{content}}"></rich-text>
       </view>
    </view>
 </view>

@@ -10,6 +10,7 @@
 		"minified": true,
 		"newFeature": true,
 		"coverView": true,
+		"nodeModules": false,
 		"autoAudits": false,
 		"showShadowRootInWxmlPanel": true,
 		"scopeDataCheck": false,
@@ -23,8 +24,8 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.10.3",
-	"appid": "wxc9b92ef2e89d9117",
+	"libVersion": "2.10.4",
+	"appid": "wxa3115b3effc7f2fb",
 	"projectname": "SiLing",
 	"debugOptions": {
 		"hidedInDevtools": []
