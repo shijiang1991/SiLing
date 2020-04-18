@@ -14,7 +14,7 @@
   <view class="phone">
     <view class="phone_1">电话咨询</view>
     <view class="phone_2">
-      <view class="phone_2_1" bindtap="btn_phone">
+      <view class="phone_2_1" bindtap="btn_phone" data-phone="{{telephone}}">
         <view class="phone_2_2">
           {{telephone}} 
         </view>

@@ -91,9 +91,11 @@ Page({
       success: function (res) {
         if (res.data.code == 200) {
           toast.normal("保存成功")
-        } else {
-          // toast.normal(res.data.message)
+        } else if(res.data.code==401) {
           that.requestlogin()
+        }else{
+          toast.normal(res.data.message)
+          //that.requestlogin()
 
         }
       },

@@ -44,9 +44,9 @@ Page({
     
 
   },
-  btn_phone:function(){
+  btn_phone:function(e){
     wx.makePhoneCall({
-      phoneNumber: '0769-12345678',
+      phoneNumber: e.currentTarget.dataset.phone,
     })
   },
   /**
