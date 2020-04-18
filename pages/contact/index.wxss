@@ -8,6 +8,7 @@
 }
 .Location_logo{
   width: 29%;
+  text-align: center;
 }
 .Location_logo image{
    height: 144rpx;
