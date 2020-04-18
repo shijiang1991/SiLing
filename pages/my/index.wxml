@@ -15,7 +15,7 @@
     <view class="title_name">
       <view class="title_name_c">
         <view wx:if="{{userId ==''}}" class="title_name_1">
-      <button class="btn-getuserinfo" bindgetuserinfo="bindAuthor" open-type='getUserInfo'>请登录</button>
+      <button class="btn-getuserinfo" bindgetuserinfo="bindAuthor" open-type='getUserInfo'>点击登录</button>
         </view>
         <view wx:else class="title_name_1">
           <open-data type="userNickName"></open-data>

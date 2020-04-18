@@ -57,20 +57,12 @@ Page({
               })
             },
             fail: function() {
-              wx.showToast({
-                title: '网络请求失败',
-                icon: 'none',
-                duration: 1500
-              })
+              toast.normal("网络错误")
             }
           })
         },
         fail: function() {
-          wx.showToast({
-            title: '网络请求失败',
-            icon: 'none',
-            duration: 1500
-          })
+          toast.normal("网络错误")
         }
       })
     }
@@ -94,36 +86,54 @@ Page({
         }
       },
       fail: function () {
-        wx.showToast({
-          title: '网络请求失败',
-          icon: 'none',
-          duration: 1500
-        })
+        toast.normal("网络错误")
       }
     })
   },
   btn_myCoupon: function() {
-    if (wx.getStorageSync("token") == "") {
-      wx.showToast({
-        title: "请先登录！",
-        icon: 'none',
-        duration: 1500
-      })
-      return false;
+    if (!this.isTokenExipre()){
+      toast.normal("登录已过期，请重新登录！")
+      return
     }
     wx.navigateTo({
       url: '/pages/my/coupon/index',
-    })
+    }) 
+  },
+  /**
+   * token 是否在有效期内
+   * false 已过期，true未过期
+   */
+  isTokenExipre(){
+    let that = this
+    if (wx.getStorageSync("token") == "") {
+      storage.save("token", "")
+      storage.save("expire", 0)
+      storage.save("logintime", 0)
+      that.setData({
+        userId: ""
+      })
+      return false;
+    }
+    let logintime = wx.getStorageSync("logintime")
+    let expire = wx.getStorageSync("expire")
+    let currenttime = new Date().getTime();
+    if (currenttime - parseInt(logintime) > parseInt(expire)) {
+      storage.save("token", "")
+      storage.save("expire", 0)
+      storage.save("logintime", 0)
+      that.setData({
+        userId: "",
+      })
+      return false
+    } else {
+      return true
+    }
   },
   //报名信息
   btn_signUp: function() {
-    if (wx.getStorageSync("token") == "") {
-      wx.showToast({
-        title: "请先登录！",
-        icon: 'none',
-        duration: 1500
-      })
-      return false;
+    if (!this.isTokenExipre()) {
+      toast.normal("登录已过期，请重新登录！")
+      return
     }
     //查询报名信息start
     wx.request({
@@ -142,31 +152,24 @@ Page({
         }
       },
       fail: function() {
-        wx.showToast({
-          title: '网络请求失败',
-          icon: 'none',
-          duration: 1500
-        })
+        toast.normal("网络错误")
       }
     })
     //查询报名信息end
 
   },
   btn_share: function() {
-    if (wx.getStorageSync("token") != "") {
-       toast.normal("请您先登录!")
-       return false;
+    if (!this.isTokenExipre()) {
+      toast.normal("登录已过期，请重新登录！")
+      return
     }
   },
   //领取抵用卷
   btn_coupon: function() {
-    if (wx.getStorageSync("token") == "") {
-      wx.showToast({
-        title: "请先登录！",
-        icon: 'none',
-        duration: 1500
-      })
-      return false;
+    let that=this
+    if (!this.isTokenExipre()) {
+      toast.normal("登录已过期，请重新登录！")
+      return
     }
     //查询报名信息start
     wx.request({
@@ -176,6 +179,22 @@ Page({
         "Content-Type": "application/json"
       },
       success: function(res) {
+        // 登录已过期
+        console.log('res:', res)
+        console.log(1)
+        console.log(res.data.code)
+        console.log(res.data.data.code)
+        if(res.data.code==401){
+          console.log(2)
+          storage.save("token", "")
+          that.setData({
+            userId: "",
+          })
+          console.log(3)
+          toast.normal("登录已过期，请重新登录")
+          return
+        }
+
         if (res.data.data.data == "") {
           wx.switchTab({
             url: '/pages/signUp/index',
@@ -185,86 +204,11 @@ Page({
         }
       },
       fail: function() {
-        wx.showToast({
-          title: '网络请求失败',
-          icon: 'none',
-          duration: 1500
-        })
+        toast.normal("网络错误")
       }
     })
     //查询报名信息end
   },
-  //微信授权登录
-  // getUserInfo: function (e) {
-  //   var that = this;
-  //   //发起微信登陆
-  //   wx.login({
-  //     success(res) {
-  //       if (res.code) {
-  //         //发起网络请求
-  //         wx.request({
-  //           url: "https://api.weixin.qq.com/sns/jscode2session?appid=" + app.globalData.appId + "" +
-  //             "&secret=" + app.globalData.appSecret + "&js_code=" + res.code + "&grant_type=authorization_code",
-  //           method: 'get',
-  //           dataType: 'json',
-  //           success: function (resData) {
-  //             var openid = resData.data.openid
-  //             // 保存用户信息到服务端
-  //             wx.request({
-  //               url: app.globalData.url + 'userinfo/wxLogin',
-  //               data: {
-  //                 openIdSmall: openid
-  //               },
-  //               method: "get",
-  //               header: {
-  //                 // 'Authorization': 'Bearer ' + token,
-  //                 'content-type': 'application/json',
-  //               },
-  //               success: function (res) {
-  //                 if (res.data.code === 200) {
-  //                   wx.setStorage({
-  //                     key: 'userId',
-  //                     data: res.data.data.data[0].id,
-  //                     success: function (r) {
-  //                       that.setData({
-  //                         userId: res.data.data.data[0].id
-  //                       });
-  //                       //关闭弹窗登录选择
-  //                       that.setData({
-  //                         showModal: false
-  //                       })
-  //                     }
-  //                   });
-  //                   wx.setStorage({
-  //                     key: 'signName',
-  //                     data: res.data.data.data[0].signName,
-  //                     success: function (r) {
-  //                       that.setData({
-  //                         signName: res.data.data.data[0].signName
-  //                       });
-  //                     }
-  //                   });
-  //                 }
-  //               },
-  //               fail: function (error) {
-  //                 wx.showToast({
-  //                   title: '网络请求错误',
-  //                   icon: 'none',
-  //                   duration: 1500
-  //                 })
-  //               }
-  //             })
-  //           },
-  //           fail(res) {
-  //             console.log('网络请求错误')
-  //           }
-  //         })
-  //       } else {
-  //         console.log('获取code失败！' + res.errMsg)
-  //       }
-  //     }
-  //   })
-  // },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -354,12 +298,17 @@ Page({
           success: function(res) {
             console.log("res 登录返回信息：", res)
             console.log("res 登录返回信息：", res.data.code)
-            console.log("res 登录返回信息：", res.data.data.token)
+            console.log("res 登录返回信息 token：", res.data.data.token)
+            console.log("res 登录返回信息 expire：", res.data.data.expire)
             if (res.data.code == 200) {
               storage.save("token", res.data.data.token)
               $this.setData({
                 userId: wx.getStorageSync("token"),
               })
+              // token有效时间
+              storage.save("expire", res.data.data.expire*59*1000)
+              storage.save("logintime", new Date().getTime())
+
               //查询邀请码 start
               if (wx.getStorageSync("token") != "") {
                 wx.request({
@@ -387,20 +336,12 @@ Page({
                         })
                       },
                       fail: function() {
-                        wx.showToast({
-                          title: '网络请求失败',
-                          icon: 'none',
-                          duration: 1500
-                        })
+                        toast.normal("网络请求失败")
                       }
                     })
                   },
                   fail: function() {
-                    wx.showToast({
-                      title: '网络请求失败',
-                      icon: 'none',
-                      duration: 1500
-                    })
+                    toast.normal("网络请求失败")
                   }
                 })
               }

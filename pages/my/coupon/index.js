@@ -1,4 +1,6 @@
 const app = getApp()
+var storage = require("../../../utils/storage.js");
+var toast = require("../../../utils/toast.js");
 Page({
 
   /**
@@ -24,26 +26,94 @@ Page({
         "Content-Type": "application/json"
       },
       success: function(res) { 
-        var temp = [];
-        for (var index in res.data.data.data) {
-          temp.push(res.data.data.data[index]);
+        if (res.data.code == 200) {
+          var temp = [];
+          for (var index in res.data.data.data) {
+            temp.push(res.data.data.data[index]);
+          }
+          that.setData({
+            list: temp,
+            count: res.data.data.data.length
+          })
+        } else if (res.data.code == 401){
+          that.requestlogin()
+        }else{
+          toast.normal("网络错误")
         }
-        that.setData({
-          list: temp,
-          count: res.data.data.data.length
-        })
+
       },
       fail: function() {
-        wx.showToast({
-          title: '网络请求失败',
-          icon: 'none',
-          duration: 1500
-        })
+        toast.normal("请重新提交")
       }
     })
     //查询所有优惠劵end
   },
-
+  requestlogin() {
+    console.log('获取用户授权情况')
+    var $this = this
+    toast.showLoading('正在重新登录...')
+    wx.login({
+      success(res) {
+        wx.request({
+          url: app.globalData.url + '/user/login/small?code=' + res.code,
+          method: 'get',
+          success: function (res) {
+            if (res.data.code == 200) {
+              storage.save("token", res.data.data.token)
+              $this.setData({
+                userId: wx.getStorageSync("token"),
+              })
+              //查询邀请码 start
+              if (wx.getStorageSync("token") != "") {
+                wx.request({
+                  url: app.globalData.url + 'user/shareCode',
+                  header: {
+                    "token": wx.getStorageSync('token'),
+                    "Content-Type": "application/json"
+                  },
+                  success: function (res) {
+                    $this.setData({
+                      shareCode: res.data.data.shareCode
+                    })
+                    wx.request({
+                      url: app.globalData.url + 'signUp/shareCode',
+                      data: {
+                        code: res.data.data.shareCode,
+                        userId: res.data.data.id
+                      },
+                      header: {
+                        "Content-Type": "application/json"
+                      },
+                      success: function (res) {
+                        toast.hideLoading()
+                        $this.setData({
+                          count: res.data.data
+                        })
+                        toast.normal("请重新提交")
+                      },
+                      fail: function () {
+                        toast.normal("网络请求失败")
+                      }
+                    })
+                  },
+                  fail: function () {
+                    toast.normal("网络请求失败")
+                  }
+                })
+              }
+              //查询邀请码 end
+            } else {
+              toast.normal(res.data.message)
+            }
+            toast.hideLoading()
+          },
+          fail: function () {
+            toast.normal("网络请求失败")
+          }
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

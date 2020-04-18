@@ -53,38 +53,23 @@ Page({
     //查询所有专业 end
   },
   formSubmit:function(e){
+    var that = this;
     if (wx.getStorageSync('token') == "") {
-      wx.showToast({
-        title: '您还未登录,请先登陆！',
-        icon: 'none',
-        duration: 1500
-      })
+      toast.normal("您还未登录,请先登陆！")
       return false;
     }
     if(e.detail.value.name==""){
-      wx.showToast({
-        title:"姓名不能为空！",
-        icon: 'none',
-        duration: 1500
-      })
+      toast.normal("姓名不能为空！")
       return false;
     }
     if (e.detail.value.phone == "") {
-      wx.showToast({
-        title: "电话不能为空！",
-        icon: 'none',
-        duration: 1500
-      })
+      toast.normal("电话不能为空！")
       return false;
     }
     if (e.detail.value.phone != "") {
       var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
       if (!myreg.test(e.detail.value.phone)) {
-        wx.showToast({
-          title: '手机格式有误！',
-          icon: 'none',
-          duration: 1500
-        })
+        toast.normal("手机格式有误！")
         return false;
       }
     }
@@ -105,35 +90,21 @@ Page({
       },
       success: function (res) {
         if (res.data.code == 200) {
-          wx.showToast({
-            title: '提交成功！',
-            icon: 'success',
-            duration: 1500
-          })
+          toast.normal("保存成功")
         } else {
-          wx.showToast({
-            title: res.data.message,
-            icon: 'none',
-            duration: 1500
-          })
+          // toast.normal(res.data.message)
+          that.requestlogin()
+
         }
       },
       fail: function (res) {
-        wx.showToast({
-          title: '网络请求失败',
-          icon: 'none',
-          duration: 1500
-        })
+        toast.normal("网络请求失败")
       }
     })
   },
   getPhoneNumber: function (res) {
     if (wx.getStorageSync('token') == "") {
-      wx.showToast({
-        title: '您还未登录,请先登陆！',
-        icon: 'none',
-        duration: 1500
-      })
+      toast.normal("网络请求失败")
       return false;
     }
     var that=this;
@@ -153,6 +124,7 @@ Page({
         url: app.globalData.url + 'user/decrypt/phone',
         method: 'post',
         success: function (res) {
+          toast.hideLoading()
           console.log("res 获取手机号返回信息：", res)
           if (res.data.code == 200) {
             console.log("手机号获取成功:", res)
@@ -160,7 +132,8 @@ Page({
               phone:res.data.data
             })
           } else {
-            toast.normal(res.data.message)
+            // toast.normal(res.data.message)
+            that.requestlogin()
           }
           toast.hideLoading()
         },
@@ -171,6 +144,72 @@ Page({
     } else {
       toast.normal("获取手机号失败")
     }
+  },
+  requestlogin() {
+    console.log('获取用户授权情况')
+    var $this = this
+    toast.showLoading('正在重新登录...')
+    wx.login({
+      success(res) {
+        wx.request({
+          url: app.globalData.url + '/user/login/small?code=' + res.code,
+          method: 'get',
+          success: function (res) {
+            if (res.data.code == 200) {
+              storage.save("token", res.data.data.token)
+              $this.setData({
+                userId: wx.getStorageSync("token"),
+              })
+              //查询邀请码 start
+              if (wx.getStorageSync("token") != "") {
+                wx.request({
+                  url: app.globalData.url + 'user/shareCode',
+                  header: {
+                    "token": wx.getStorageSync('token'),
+                    "Content-Type": "application/json"
+                  },
+                  success: function (res) {
+                    $this.setData({
+                      shareCode: res.data.data.shareCode
+                    })
+                    wx.request({
+                      url: app.globalData.url + 'signUp/shareCode',
+                      data: {
+                        code: res.data.data.shareCode,
+                        userId: res.data.data.id
+                      },
+                      header: {
+                        "Content-Type": "application/json"
+                      },
+                      success: function (res) {
+                        toast.hideLoading()
+                        $this.setData({
+                          count: res.data.data
+                        })
+                        toast.normal("请重新提交")
+                      },
+                      fail: function () {
+                        toast.normal("网络请求失败")
+                      }
+                    })
+                  },
+                  fail: function () {
+                    toast.normal("网络请求失败")
+                  }
+                })
+              }
+              //查询邀请码 end
+            } else {
+              toast.normal(res.data.message)
+            }
+            toast.hideLoading()
+          },
+          fail: function () {
+            toast.normal("网络请求失败")
+          }
+        })
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
