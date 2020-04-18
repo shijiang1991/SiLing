@@ -1,9 +1,9 @@
 .title{
-  height: 320rpx;
+  height: 380rpx;
  width: 100%;
 }
 .title image{
-  height: 320rpx;
+  height: 380rpx;
   width: 100%;
 }
 .flex{
