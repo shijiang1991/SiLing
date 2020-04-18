@@ -20,6 +20,6 @@
     <view class="content_title_2">学校介绍</view>
   </view>
   <view class="content">
-    {{content}}
+     <rich-text nodes="{{content}}"></rich-text>
   </view>
 </view>

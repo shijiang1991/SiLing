@@ -24,7 +24,6 @@ Page({
         console.log(res.data)
         if(res.data.code==200){
           let content = res.data.data.content.replace(/\<img/gi, '<img style="max-width:100%;height:auto" ')
-
            that.setData({
              picture:res.data.data.picture,
              title: res.data.data.title,

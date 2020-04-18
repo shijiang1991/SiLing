@@ -26,7 +26,7 @@ Page({
            picture: res.data.data.data[0].picture,
            name: res.data.data.data[0].name,
            address: res.data.data.data[0].address,
-           content: res.data.data.data[0].content
+           content: res.data.data.data[0].content.replace(/\<img/gi, '<img style="max-width:100%;height:auto" ')
          })
       },
       fail: function () {
