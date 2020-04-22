@@ -11,7 +11,7 @@ Page({
     recruitStudentList: [],
     pageIndex: 1,
     pageSize: 10,
-    end:""
+    end: ""
   },
   //事件处理函数
   bindViewTap: function() {
@@ -83,6 +83,7 @@ Page({
           recruitStudentEnglishName: res.data.data.data[1].englishName,
           professionalIntroductionName: res.data.data.data[2].name,
           professionalIntroductionIcon: res.data.data.data[2].icon,
+          professionalIntroductionEnglishName: res.data.data.data[2].englishName,
           contactUsName: res.data.data.data[3].name,
           contactUsIcon: res.data.data.data[3].icon,
         })
@@ -218,41 +219,60 @@ Page({
 
     var that = this;
     //招生简章 start
+    // wx.request({
+    //   url: app.globalData.url + 'professional/HomeProfessional',
+    //   data: {
+    //     page: this.data.pageIndex,
+    //     limit: this.data.pageSize,
+    //   },
+    //   method: 'get',
+    //   header: {
+    //     'content-type': 'application/json',
+    //   },
+    //   success: function(res) {
+    //     if (res.data.code == 200) {
+    //       if (that.data.pageIndex == 1) {
+    //         that.setData({
+    //           recruitStudentList: res.data.data.data,
+    //           end: ""
+    //         });
+    //       } else {
+    //         var temp = [];
+    //         temp = that.data.recruitStudentList;
+    //         for (var item in res.data.data.data){    
+    //           temp.push(res.data.data.data[item])
+    //         }
+    //         console.log(temp)
+    //         that.setData({
+    //           recruitStudentList: temp,
+    //           end: ""
+    //         });
+
+    //       }
+    //     }else{
+    //       that.setData({
+    //         end:"1"
+    //       })
+    //     }
+    //   },
+    //   fail: function() {
+    //     wx.showToast({
+    //       title: '网络请求失败',
+    //       icon: 'none',
+    //       duration: 1500
+    //     })
+    //   }
+    // })
     wx.request({
-      url: app.globalData.url + 'recruitStudent/getRecruitStudentPage',
-      data: {
-        page: this.data.pageIndex,
-        limit: this.data.pageSize,
-      },
+      url: app.globalData.url + 'professional/HomeProfessional',
       method: 'get',
       header: {
         'content-type': 'application/json',
       },
       success: function(res) {
-        if (res.data.code == 200) {
-          if (that.data.pageIndex == 1) {
-            that.setData({
-              recruitStudentList: res.data.data.data,
-              end: ""
-            });
-          } else {
-            var temp = [];
-            temp = that.data.recruitStudentList;
-            for (var item in res.data.data.data){    
-              temp.push(res.data.data.data[item])
-            }
-            console.log(temp)
-            that.setData({
-              recruitStudentList: temp,
-              end: ""
-            });
-
-          }
-        }else{
-          that.setData({
-            end:"1"
-          })
-        }
+        that.setData({
+          recruitStudentList: res.data.data.data,
+        });
       },
       fail: function() {
         wx.showToast({
@@ -280,11 +300,11 @@ Page({
     this.getRecruitStudentPage()
   },
   //btn_draw
-  btn_draw:function(){
+  btn_draw: function() {
     wx.showModal({
       title: '提示',
       content: '报名领取抵用卷',
-      success: function (res) {
+      success: function(res) {
         if (res.confirm) {
           wx.switchTab({
             url: '/pages/signUp/index',
@@ -292,11 +312,11 @@ Page({
         }
       }
     })
-  } ,
-  btn_detail:function(e){
+  },
+  btn_detail: function(e) {
     var id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '/pages/school/detail/index?id='+id,
+      url: '/pages/major/detail/index?id=' + id,
     })
-  } 
+  }
 })

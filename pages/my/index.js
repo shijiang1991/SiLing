@@ -29,6 +29,11 @@ Page({
     this.setData({
       userId: wx.getStorageSync("token")
     })
+    //查询是否过期
+    if (!this.isTokenExipre()) {
+      console.log("查询是否过期")
+      this.requestlogin();
+    }
     //查询邀请码 start
     if (wx.getStorageSync("token") != "") {
       wx.request({
@@ -92,12 +97,13 @@ Page({
   },
   btn_myCoupon: function() {
     if (!this.isTokenExipre()){
-      toast.normal("登录已过期，请重新登录！")
-      return
+     this.requestlogin();
+    }else{
+      wx.navigateTo({
+        url: '/pages/my/coupon/index',
+      }) 
     }
-    wx.navigateTo({
-      url: '/pages/my/coupon/index',
-    }) 
+   
   },
   /**
    * token 是否在有效期内
@@ -133,7 +139,7 @@ Page({
   btn_signUp: function() {
     if (!this.isTokenExipre()) {
       toast.normal("登录已过期，请重新登录！")
-      return
+      return false;
     }
     //查询报名信息start
     wx.request({
@@ -255,7 +261,7 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-
+      
   },
   bindAuthor: function() {
     var $this = this;

@@ -48,6 +48,9 @@ Page({
     })
     //查询所有优惠劵end
   },
+  list:function(){
+
+  },
   requestlogin() {
     console.log('获取用户授权情况')
     var $this = this
@@ -89,7 +92,6 @@ Page({
                         $this.setData({
                           count: res.data.data
                         })
-                        toast.normal("请重新提交")
                       },
                       fail: function () {
                         toast.normal("网络请求失败")

@@ -34,7 +34,7 @@
     </view>
   </view>
   <view class="three">
-    <view class="three1"><text>//</text>{{couponTitle}}<text>//</text></view>
+    <view class="three1">{{couponTitle}}</view>
     <view class="three2">
       <view class="three_1">
         <view class="three_1_1">￥{{couponMoney}}</view>
@@ -52,7 +52,8 @@
   </view>
   <view class="four">
     <view class="four_1">
-       <text>{{recruitStudentName}}</text> /{{recruitStudentEnglishName}}
+       <!-- <text>{{recruitStudentName}}</text> /{{recruitStudentEnglishName}} -->
+       <text>王牌专业</text> / Trump card
     </view>
     <view class="four_2" wx:for="{{recruitStudentList}}" bindtap="btn_detail" data-id="{{item.id}}">
        <view class="four_2_1"><image src='{{item.picture}}'></image></view>

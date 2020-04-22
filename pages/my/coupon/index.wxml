@@ -10,8 +10,10 @@
             <view class="content_1_2_1">{{item.name}}</view>
             <view class="content_1_2_2">
                <view class="content_1_2_2_1">{{item.startTimeTemp}}至{{item.endTimeTemp}}</view>
-               <view class="content_1_2_2_2"><text>报名使用</text></view>
             </view>            
+         </view>
+         <view class="content_1_3">
+               <view class="content_1_3_1"><text>报名使用</text></view>          
          </view>
        </view>
        <view class="flex"></view>

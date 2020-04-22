@@ -5,7 +5,37 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    markers: [{
+      iconPath: "/resources/others.png",
+      id: 0,
+      latitude: 28.1001683300,
+      longitude: 112.9946422600,
+      width: 50,
+      height: 50
+    }],
+    polyline: [{
+      points: [{
+        longitude: 28.1001683300,
+        latitude: 112.9946422600
+      }, {
+          longitude:28.1001683300,
+          latitude: 112.9946422600
+      }],
+      color: "#FF0000DD",
+      width: 2,
+      dottedLine: true
+    }],
+    controls: [{
+      id: 1,
+      iconPath: '/resources/location.png',
+      position: {
+        left: 0,
+        top: 300 - 50,
+        width: 50,
+        height: 50
+      },
+      clickable: true
+    }]
   },
 
   /**

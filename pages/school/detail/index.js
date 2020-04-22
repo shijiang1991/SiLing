@@ -14,7 +14,7 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx.request({
-      url: app.globalData.url + '/recruitStudent/detail',
+      url: app.globalData.url + 'recruitStudent/detail',
       data: { id: options.id},
       method: 'get',
       header: {

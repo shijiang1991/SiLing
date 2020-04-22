@@ -1,13 +1,18 @@
-<view class="four">
-     <view class="four_2" wx:for="{{recruitStudentList}}" bindtap="btn_detail" data-id="{{item.id}}">
-       <view class="four_2_1"><image src='{{item.picture}}'></image></view>
-       <view class="four_2_2">
-          <view class="four_2_2_1">{{item.title}}</view>
-          <view class="four_2_2_2">
-               <view class="four_2_2_2_1">{{item.createTime}}</view>
-               <view class="four_2_2_2_2">{{item.clickNum}}人阅读</view>
-          </view>
-       </view>
-    </view>
-    <view class="footer" wx:if="{{end!=''}}">到底了....</view>
+<view class="section">
+    <!-- 左侧类型 -->
+    <scroll-view scroll-y="true" class="left">
+        <view wx:for="{{types}}" wx:key="typeId" data-type-id="{{item.id}}" bindtap="tapType" class="{{item.id == currType ? 'active' : ''}}" style="font-size:33rpx">
+            {{item.name}}
+        </view>
+    </scroll-view>
+    <!-- 右侧数据 -->
+    <scroll-view scroll-y="true" class="right">
+        <view class="typeTree">
+            <view  class="brand" wx:for="{{typeTree}}" wx:for-item="item" 
+            bindtap="btn_detail" data-id="{{item.id}}">
+                   <view class="brand_1"><image src="{{item.picture}}"></image></view>
+                   <view class="brand_2"><text>{{item.title}}</text>   </view>         
+            </view>
+        </view>
+    </scroll-view>
 </view>

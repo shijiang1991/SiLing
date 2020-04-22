@@ -37,7 +37,7 @@
   font-size: 20rpx;
 }
 .content_1_2{
-  width: 75%;
+  width: 55%;
   padding-left: 6rpx;
 }
 .content_1_2_1{
@@ -52,16 +52,17 @@
 .content_1_2_2_1{
   font-size: 20rpx;
   color: rgb(151, 149, 149);
-  width: 70%;
 }
-.content_1_2_2_2{
-  font-size: 20rpx;
+.content_1_3{
+  font-size: 28rpx;
+  font-weight: bold;
   color: rgb(248, 81, 81);
-  width: 30%;
-  text-align: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.content_1_2_2_2 text{
-   border:1px solid rgb(248, 81, 81);
+.content_1_3_1{
+  border:1px solid rgb(248, 81, 81);
    border-radius: 16rpx;
    padding: 2rpx;
 }

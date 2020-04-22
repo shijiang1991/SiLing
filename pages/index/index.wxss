@@ -1,16 +1,16 @@
 /**index.wxss**/
 .swiper {
-  height: 386rpx;
+  height: 580rpx;
   width: 100%;
 }
 
 .swiper swiper {
-  height: 376rpx;
+  height: 580rpx;
 }
 
 .swiper image {
   width: 100%;
-  height: 376rpx;
+  height: 580rpx;
 }
 .two {
   height:240rpx;
@@ -34,7 +34,7 @@
   width: 44rpx;
 }
 .three{
-  height: 160rpx;
+  height: 180rpx;
   border-bottom: 16rpx solid #F4F4F4;
 }
 .three1{
@@ -44,11 +44,7 @@
   align-items: center;
   border-bottom: 1px solid #F4F4F4;
   font-size: 32rpx;
-}
-.three1 text{
-  color: #0099FF;
-  font-weight: bold;
-  font-size: 12rpx;
+  font-weight: bold
 }
 .three_1_1{
   font-size: 32rpx;
@@ -56,7 +52,7 @@
 .three2{
    display: flex;
    flex-direction: row;
-   height: 100rpx;
+   height: 138rpx;
    padding: 3%;
 }
 .three_1{
@@ -68,7 +64,7 @@
   align-items: center;
   color: #fff;
   font-size: 20rpx;
-  height: 74rpx;
+  height: 90rpx;
   border-radius: 10rpx;
 }
 three_1_1{
@@ -94,7 +90,7 @@ three_1_1{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 74rpx;
+  height: 90rpx;
 }
 .three_3 text{
   border: 1rpx solid rgb(34, 33, 33);

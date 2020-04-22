@@ -1,67 +1,100 @@
-.Location{
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  border-bottom: 16rpx solid #F4F4F4;
-  padding-top: 3%;
-  padding-bottom: 3%; 
+.Location {
+  width: 94%;
+  border-bottom: 16rpx solid #f4f4f4;
+  padding: 3%;
 }
-.Location_logo{
-  width: 29%;
+
+.Location_logo {
+  width: 100%;
   text-align: center;
 }
-.Location_logo image{
-   height: 144rpx;
-   width:144rpx;
+
+.Location_logo image {
+  height: 288rpx;
+  width: 288rpx;
 }
-.Location_address{
-  width:61%; 
+
+.Location_address {
+  width: 100%;
+  text-align: center;
 }
-.Location_address_1{
+
+.Location_address_1 {
   font-size: 28rpx;
+  font-weight: bold;
 }
-.Location_address_2{
+
+.Location_address_2 {
   padding-top: 10rpx;
-  font-size: 20rpx;
+  font-size: 24rpx;
   color: rgb(99, 97, 97);
 }
-.Location_location{
-  display: flex;
-  align-items: center;
-}
-.Location_location image{
-  height: 48rpx;
-  width: 48rpx;
-}
-.phone{
+
+.Location_location {
+  padding: 3%;
   width: 94%;
-  padding-left:3%; 
+  display: flex;
+  border-bottom: 2rpx solid #f4f4f4;
+  flex-direction: column;
+}
+
+.Location_location image {
+  height: 44rpx;
+  width: 42rpx;
+}
+
+.Location_location_1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.Location_location_1_1 {
+  display: flex;
+  align-content: center;
+}
+
+.Location_location_1_2 {
+  font-size: 28rpx;
+  padding-left: 5rpx;
+}
+
+.Location_location_2 {
+  padding-top: 16rpx;
+}
+.phone {
+  width: 94%;
+  padding-left: 3%;
   padding-right: 3%;
   height: 88rpx;
   display: flex;
   flex-direction: row;
   align-items: center;
-  border-bottom: 2rpx solid #F4F4F4;
+  border-bottom: 2rpx solid #f4f4f4;
 }
-.phone_1{
+
+.phone_1 {
   font-size: 24rpx;
   color: #888;
   width: 20%;
 }
-.phone_2{
+
+.phone_2 {
   text-align: right;
   width: 80%;
-  font-size: 28rpx
+  font-size: 28rpx;
 }
-.phone_2 image{
+
+.phone_2 image {
   height: 36rpx;
   width: 36rpx;
 }
-.phone_2_1{
+
+.phone_2_1 {
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
 }
-.phone_2_2{
+
+.phone_2_2 {
   padding-left: 6rpx;
 }

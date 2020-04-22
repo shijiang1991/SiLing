@@ -1,55 +1,108 @@
-.four{
+.section {
+  position: absolute;
   width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
-.four_1{
-  font-size: 20rpx;
-  align-items: center;
-  color: rgb(151, 149, 149);
-  width: 94%;
-  padding: 3%;
-  background: #F4F4F4;
-}
-.four_1 text{
+
+.left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 180rpx;
+  background: #f6f6f6;
+  text-align: center;
   font-size: 28rpx;
-  color: rgb(5, 4, 4);
 }
-.four_2{
-  width: 94%;
-  padding: 3%;
-  border-bottom: 2rpx solid #F4F4F4;
-  height: 110rpx;
-  display: flex;
-  flex-direction: row;
+
+.left::before {
+  content: "";
+  position: absolute;
+  background: #dcdcdc;
+  right: 0;
+  top: 0;
+  height: 100%;
+  border-right: 1rpx solid #dcdcdc;
 }
-.four_2_1{
-  width: 30%
+
+.left view.active {
+  background: #fff;
+  position: relative;
+  z-index: 2;
 }
-.four_2_1 image{
-   height: 100%;
-   width: 180rpx;
+
+.left view {
+  display: block;
+  height: 120rpx;
+  line-height: 120rpx;
+  border-bottom: 2rpx solid #dcdcdc;
 }
-.four_2_2{
- width: 70%;
- height: 100%;
- display: flex;
- flex-direction: column;
- padding-left: 16rpx;
+
+.right {
+  margin-left: 180rpx;
+  height: 100%;
+  overflow: hidden;
+  width: auto;
+  background: #fff;
 }
-.four_2_2_1{
-  font-size: 24rpx;
-  height: 80%;
+
+.right text {
+  font-size: 30rpx;
 }
-.four_2_2_2{
-  font-size: 20rpx;
-  color: rgb(151, 149, 149);
+
+.typeTree {
+  padding: 20rpx 40rpx;
   width: 100%;
-  display: flex;
-  flex-direction: row;
 }
-.four_2_2_2_1{
-  width: 50%;
+
+.typeTree .item {
+  text-align: center;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 14%;
 }
-.four_2_2_2_2{
-  width: 50%;
-  text-align: right;
+
+.typeTree .brand, .typeTree .category {
+  flex-wrap: wrap;
+  overflow: hidden;
+  display: inline-block;
+  width: 45%;
+}
+
+.typeTree .title {
+  padding: 20rpx 0;
+  display: block;
+  color: #333;
+}
+
+.typeTree image {
+  width: 200rpx;
+  margin: 0 auto;
+}
+
+.typeTree .brand image {
+  height: 200rpx;
+}
+
+.typeTree .category image {
+  height: 170rpx;
+}
+
+.typeTree .category {
+  padding-bottom: 20rpx;
+}
+
+.item text {
+  padding-bottom: 20rpx;
+  display: block;
+}
+.brand_1{
+  text-align: center;
+}
+.brand_2{
+  text-align: center;
+}
+.brand text{
+ font-size: 24rpx !important
 }

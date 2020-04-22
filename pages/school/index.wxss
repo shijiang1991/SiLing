@@ -1,6 +1,6 @@
 .school_title image{
     width: 100%;
-    height: 288rpx;
+    height: 388rpx;
 }
 .school_address{
   height: 150rpx;

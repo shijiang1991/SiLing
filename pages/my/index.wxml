@@ -78,7 +78,7 @@
   <view class="footer_juan">
     <view class="footer_juan_1" >
        <view class="footer_juan_1_1">邀请好友报名可以获得<text>50</text>元抵用卷</view>
-       <view class="footer_juan_1_2" ><!-- <text >立即分享</text> --><button open-type="share">立即分享</button></view> 
+       <view class="footer_juan_1_2"><!-- <text >立即分享</text> --><button open-type="share">立即分享</button></view> 
     </view>
   </view>
 </view>

@@ -1,8 +1,18 @@
-<view class="container">
-  <view class="userinfo">
-   <button open-type="share">分享好友</button>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+<view class="section">
+    <!-- 左侧类型 -->
+    <scroll-view scroll-y="true" class="left">
+        <view wx:for="{{types}}" wx:key="typeId" data-type-id="{{item.id}}" bindtap="tapType" class="{{item.id == currType ? 'active' : ''}}" style="font-size:33rpx">
+            {{item.name}}
+        </view>
+    </scroll-view>
+    <!-- 右侧数据 -->
+    <scroll-view scroll-y="true" class="right">
+        <view class="typeTree">
+            <view  class="brand" wx:for="{{typeTree}}" wx:for-item="item" 
+            bindtap="btn_detail" data-id="{{item.id}}">
+                   <view class="brand_1"><image src="{{item.picture}}"></image></view>
+                   <view class="brand_2"><text>{{item.title}}</text>   </view>         
+            </view>
+        </view>
+    </scroll-view>
 </view>
