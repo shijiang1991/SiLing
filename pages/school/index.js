@@ -21,12 +21,11 @@ Page({
         'content-type': 'application/json',
       },
       success: function (res) {
-         console.log(res.data.data.data[0].id)
          that.setData({
            picture: res.data.data.data[0].picture,
            name: res.data.data.data[0].name,
            address: res.data.data.data[0].address,
-           content: res.data.data.data[0].content.replace(/\<img/gi, '<img style="max-width:100%;height:auto" ')
+           content: res.data.data.data[0].content.replace(/\<img/gi, '<img style="max-width:100%;height:auto" ').replace(/&nbsp;/g, '\xa0')
          })
       },
       fail: function () {

@@ -6,6 +6,7 @@
   height: 150rpx;
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 .school_address_1{
   width: 90%;
@@ -53,13 +54,7 @@
   font-weight: bold;
 }
 .content{
-  padding:10rpx; 
+  width: 94%;
+  padding:3%; 
   font-size: 28rpx;
-}
-.content text{
- padding-left: 3%;
-}
-.content image{
-  padding-top: 10rpx;
-  width: 100%;
 }

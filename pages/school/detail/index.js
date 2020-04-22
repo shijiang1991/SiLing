@@ -23,7 +23,7 @@ Page({
       success: function (res) {
         console.log(res.data)
         if(res.data.code==200){
-          let content = res.data.data.content.replace(/\<img/gi, '<img style="max-width:100%;height:auto" ')
+          let content = res.data.data.content.replace(/\<img/gi, '<img style="max-width:100%;height:auto" ').replace(/&nbsp;/g, '\xa0')
            that.setData({
              picture:res.data.data.picture,
              title: res.data.data.title,
