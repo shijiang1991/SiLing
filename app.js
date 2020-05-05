@@ -10,8 +10,8 @@ App({
   },
   globalData: {
     userInfo: null,
-    //url: "https://api.school.itislevel.com/",
-    url: "http://192.168.2.19:8081/",
-    //url: "http://192.168.0.190:8081/"
+    url: "https://api.school.itislevel.com/",
+    //url: "http://192.168.2.19:8081/",
+    //url: "http://192.168.0.189:8081/"
   }
 })

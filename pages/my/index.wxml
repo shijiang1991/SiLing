@@ -53,13 +53,13 @@
         <view class="content_1_2">
           <image src="../../img/juan.png"></image>
         </view>
-        <view class="content_1_3">我的抵用卷</view>
+        <view class="content_1_3">我的助学金</view>
       </view>
       <view class="content_1_1" bindtap="btn_coupon">
         <view class="content_1_2">
           <image src="../../img/juan1.png"></image>
         </view>
-        <view class="content_1_3">领取抵用卷</view>
+        <view class="content_1_3">领取助学金</view>
       </view>
       <view class="content_1_1" bindtap="btn_signUp">
         <view class="content_1_2">

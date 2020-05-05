@@ -38,7 +38,7 @@
     <view class="three2">
       <view class="three_1">
         <view class="three_1_1">￥{{couponMoney}}</view>
-        <view>代金券</view>
+        <view>助学金</view>
       </view>
       <view class="three_2">
          <view class="three_2_1">{{couponName}}</view>
